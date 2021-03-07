@@ -76,6 +76,7 @@
         "symfony/polyfill-php72": "*"
     },
     "scripts": {
+        "lint:service" : "php bin/console lint:container",
         "format:phpcs" : "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src",
         "security:check" : "tools/local-php-security-checker/checker.exe --format=json",
         "auto-scripts": {
