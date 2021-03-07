@@ -8,16 +8,21 @@
   "editor.quickSuggestions": {
     "comments": true
   },
+  "editor.formatOnSaveTimeout": 5000,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.associations": {
     ".*intrc": "json"
   },
   "css.validate": false,
+  "emmet.includeLanguages": {
+    "twig": "html"
+  },
   "json.format.enable": true,
   "less.validate": false,
   "javascript.validate.enable": false,
   "php.suggest.basic": false,
+  "php-cs-fixer.rules": "@PhpCsFixer",
   "scss.validate": false,
   "stylelint.enable": true,
   "htmlhint.documentSelector": [
@@ -31,6 +36,10 @@
   },
   "[markdown]": {
     "editor.acceptSuggestionOnEnter": "off"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "junstyle.php-cs-fixer",
+    "editor.formatOnSave": true
   },
   "intelephense.files.exclude": [
     "**/.git/**",
