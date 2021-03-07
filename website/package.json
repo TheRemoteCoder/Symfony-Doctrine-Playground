@@ -3,6 +3,7 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
+    "prettier": "prettier",
     "project:clean": "rm -rf dist",
     "project:reset": "rm -rf node_modules"
   },

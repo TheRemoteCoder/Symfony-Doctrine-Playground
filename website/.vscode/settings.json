@@ -23,6 +23,8 @@
   "javascript.validate.enable": false,
   "php.suggest.basic": false,
   "php-cs-fixer.rules": "@PhpCsFixer",
+  "php-cs-fixer.executablePath": "php-cs-fixer",
+  /* "php-cs-fixer.executablePathWindows": "php-cs-fixer.bat", */
   "scss.validate": false,
   "stylelint.enable": true,
   "htmlhint.documentSelector": [

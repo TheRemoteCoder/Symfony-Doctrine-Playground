@@ -12,6 +12,7 @@
     "junstyle.php-cs-fixer",
     "mkaufman.htmlhint",
     "msjsdiag.debugger-for-chrome",
+    "mtxr.sqltools",
     "nadim-vscode.symfony-code-snippets",
     "nadim-vscode.symfony-super-console",
     "stylelint.vscode-stylelint",
