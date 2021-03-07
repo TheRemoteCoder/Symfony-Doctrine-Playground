@@ -1,5 +1,9 @@
 doctrine:
     dbal:
+        host: 'localhost'
+        user: '%env(DATABASE_USER)%'
+        password: '%env(DATABASE_PASSWORD)%'
+        # driver: 'pdo_mysql'
         url: '%env(resolve:DATABASE_URL)%'
 
         # IMPORTANT: You MUST configure your server version,
