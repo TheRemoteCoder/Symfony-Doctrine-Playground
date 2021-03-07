@@ -23,8 +23,9 @@
   "javascript.validate.enable": false,
   "php.suggest.basic": false,
   "php-cs-fixer.rules": "@PhpCsFixer",
-  "php-cs-fixer.executablePath": "php-cs-fixer",
-  /* "php-cs-fixer.executablePathWindows": "php-cs-fixer.bat", */
+  "php-cs-fixer.config": ".php_cs;.php_cs.dist",
+  "php-cs-fixer.executablePath": "/vendor/bin/php-cs-fixer",
+  "php-cs-fixer.executablePathWindows": "C:\\xampp\\htdocs\\tests\\symfony-doctrine\\website\\vendor\\bin\\php-cs-fixer.bat",
   "scss.validate": false,
   "stylelint.enable": true,
   "htmlhint.documentSelector": [
