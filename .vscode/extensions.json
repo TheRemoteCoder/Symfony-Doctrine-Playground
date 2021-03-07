@@ -1,12 +1,19 @@
 {
   "recommendations": [
+    "bmewburn.vscode-intelephense-client",
+    "christian-kohler.path-intellisense",
     "dbaeumer.vscode-eslint",
+    "duboiss.sf-pack",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
+    "felixfbecker.php-intellisense",
     "flowtype.flow-for-vscode",
+    "ikappas.phpcs",
     "mkaufman.htmlhint",
+    "msjsdiag.debugger-for-chrome",
+    "nadim-vscode.symfony-code-snippets",
+    "nadim-vscode.symfony-super-console",
     "stylelint.vscode-stylelint",
-    "christian-kohler.path-intellisense",
-    "msjsdiag.debugger-for-chrome"
+    "thenouillet.symfony-vscode"
   ]
 }
