@@ -5,6 +5,9 @@
   "editor.detectIndentation": false,
   "editor.insertSpaces": false,
   "editor.useTabStops": false,
+  "editor.quickSuggestions": {
+    "comments": true
+  },
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.associations": {
@@ -14,6 +17,7 @@
   "json.format.enable": true,
   "less.validate": false,
   "javascript.validate.enable": false,
+  "php.suggest.basic": false,
   "scss.validate": false,
   "stylelint.enable": true,
   "htmlhint.documentSelector": [
@@ -28,6 +32,16 @@
   "[markdown]": {
     "editor.acceptSuggestionOnEnter": "off"
   },
+  "intelephense.files.exclude": [
+    "**/.git/**",
+    "**/.svn/**",
+    "**/.hg/**",
+    "**/CVS/**",
+    "**/.DS_Store/**",
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/vendor/**/{Test,test,Tests,tests}/**/*Test.php"
+  ],
   /* * /
   "terminal.integrated.fontSize": 14,
   "workbench.colorCustomizations": {
