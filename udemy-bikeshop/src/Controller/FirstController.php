@@ -8,6 +8,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class FirstController
 {
   /**
+   * See 'config/routes.yaml'
+   */
+  public function index(): Response
+  {
+    return new Response(
+      '<html><body><h1>index</h1></body></html>'
+    );
+  }
+
+  /**
    * Annotations -MUST- have double ticks, not single ticks.
    *
    * @Route("/first")
@@ -15,7 +25,7 @@ class FirstController
   public function first(): Response
   {
     return new Response(
-      '<html><body><h1>FirstController</h1></body></html>'
+      '<html><body><h1>first</h1></body></html>'
     );
   }
 }

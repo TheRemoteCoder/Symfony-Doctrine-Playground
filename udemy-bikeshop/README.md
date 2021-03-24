@@ -74,6 +74,12 @@ despite the web address won't be reachable anymore. Run this:
 
 ## Troubleshooting
 
+### 404 / Content not found
+
+Be aware that `symfony server:start` can be run from anywhere, not just web root.
+It seems trying to resolve files locally from current folder, so if there are issues,
+you are probably in the wrong folder. Only use this from web root!
+
 ### Caches
 
 Symfony creates caches of PHP, Twig, configurations and other files even on DEV environment.
