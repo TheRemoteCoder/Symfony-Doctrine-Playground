@@ -5,6 +5,20 @@
     "description": "A minimal Symfony project recommended to create bare bones applications",
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "scripts": {
+        "sf-start": "symfony server:start",
+        "sf-stop": "symfony server:stop",
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
     "require": {
         "php": ">=7.2.5",
         "ext-ctype": "*",
@@ -38,18 +52,6 @@
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
         "symfony/polyfill-php72": "*"
-    },
-    "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        },
-        "post-install-cmd": [
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ]
     },
     "conflict": {
         "symfony/symfony": "*"

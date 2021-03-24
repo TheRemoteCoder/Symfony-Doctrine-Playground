@@ -1,8 +1,22 @@
 # Symfony + Doctrine Playground
 
+- [Intro](#intro)
 - [Config](#config)
 - [Debugging](#debugging)
 - [Doctrine](#doctrine)
+
+<br>
+
+---
+
+<br><br>
+
+## Intro
+
+As of 2021/03: All Symfony setups are empty and unused, except for :
+
+- `/website/` - Basic config, dev stack, secrets
+- `/udemy-bikeshop/` - Udemy course data
 
 <br>
 
