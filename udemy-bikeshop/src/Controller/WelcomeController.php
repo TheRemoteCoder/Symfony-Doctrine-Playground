@@ -15,7 +15,12 @@ class WelcomeController extends AbstractController
    */
   public function thisNameDoesNotMatterForRouting(): Response
   {
-    return $this->render('welcome.html.twig');
+    $viewData = [
+      'day'    => date('l'),
+      'script' => '<script>console.log(1)</script>',
+    ];
+    
+    return $this->render('welcome.html.twig', $viewData);
   }
 }
 
