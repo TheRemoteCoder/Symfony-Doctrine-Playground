@@ -5,6 +5,7 @@
     {% block head %}
       <title>{% block title %}{% endblock %} - My Webpage</title>
     {% endblock %}
+    {{ encore_entry_link_tags('app') }}
   </head>
   <body>
     <div id="content">{% block content %}{% endblock %}</div>
