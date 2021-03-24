@@ -15,7 +15,7 @@ class WelcomeController extends AbstractController
    */
   public function thisNameDoesNotMatterForRouting(): Response
   {
-    $this->render('welcome.html.twig');
+    return $this->render('welcome.html.twig');
   }
 }
 
