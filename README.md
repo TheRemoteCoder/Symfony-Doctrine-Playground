@@ -3,6 +3,7 @@
 - [Intro](#intro)
 - [Config](#config)
 - [Debugging](#debugging)
+- [Maintenance](#maintenance)
 - [Doctrine](#doctrine)
 
 <br>
@@ -54,6 +55,20 @@ php bin/console debug:config security
 
 # Show events
 php bin/console debug:event-dispatcher kernel.controller
+```
+
+<br>
+
+---
+
+<br><br>
+
+## Maintenance
+
+Via Symfony CLI (install separately) - Check package security (similar to NPM).
+
+```txt
+symfony check:security
 ```
 
 <br>

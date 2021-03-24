@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route; 
+use Symfony\Component\Routing\Annotation\Route;
 
 class FirstController extends AbstractController
 {
@@ -21,7 +21,7 @@ class FirstController extends AbstractController
   /**
    * Annotations -MUST- have double ticks, not single ticks.
    *
-   * @Route("/first/{$name}")
+   * @Route("/first/{name}")
    */
   public function first(string $name): Response
   {
