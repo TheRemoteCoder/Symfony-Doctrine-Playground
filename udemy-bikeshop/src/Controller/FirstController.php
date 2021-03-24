@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route; 
 
-class FirstController
+class FirstController extends AbstractController
 {
   /**
    * See 'config/routes.yaml'
@@ -20,13 +21,13 @@ class FirstController
   /**
    * Annotations -MUST- have double ticks, not single ticks.
    *
-   * @Route("/first")
+   * @Route("/first/{$name}")
    */
-  public function first(): Response
+  public function first(string $name): Response
   {
-    return new Response(
-      '<html><body><h1>first</h1></body></html>'
-    );
+    return $this->json([
+      'name' => $name,
+    ]);
   }
 }
 
