@@ -1,8 +1,5 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
-
-index:
-    path: /first
-    controller: App\Controller\FirstController::index
+# Can also be done via annotations
+# index:
+#     path: /first
+#     controller: App\Controller\FirstController::index
 
