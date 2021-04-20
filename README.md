@@ -48,6 +48,11 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/example_store"
   - Root user might be disabled and cannot be used
   - Sudo user switching did not work in own test
 
+### Dependencies
+
+- `composer install`
+- `npm i`
+
 ### ENV file config
 
 - Set user and password in `.env` under `DATABASE_URL`
