@@ -2,6 +2,7 @@
 
 - [Intro](#intro)
 - [Config](#config)
+- [Setup](#setup)
 - [Debugging](#debugging)
 - [Maintenance](#maintenance)
 - [Doctrine](#doctrine)
@@ -32,6 +33,34 @@ Set in `.env` file:
 ```txt
 DATABASE_URL="mysql://root:@127.0.0.1:3306/example_store"
 ```
+
+<br>
+
+---
+
+<br><br>
+
+## Setup
+
+### Server certificate
+
+- MacOS: Switch to admin user and install there, than switch back
+  - Root user might be disabled and cannot be used
+  - Sudo user switching did not work in own test
+
+### ENV file config
+
+- Set user and password in `.env` under `DATABASE_URL`
+- Make sure SQL user has correct authentication method for SQL/PHP version
+  - Here: Needs the older 'Standard' auth (not SHA2)
+
+### Create + Fill database
+
+Optional, if files exist – Create DB + tables with content.
+
+- `php bin/console doctrine:database:create`
+- `php bin/console doctrine:migrations:migrate`
+
 
 <br>
 
