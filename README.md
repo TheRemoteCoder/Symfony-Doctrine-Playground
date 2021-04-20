@@ -53,6 +53,10 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/example_store"
 - `composer install`
 - `npm i`
 
+### Build encore
+
+- https://symfony.com/doc/current/frontend/encore/simple-example.html
+
 ### ENV file config
 
 - Set user and password in `.env` under `DATABASE_URL`
