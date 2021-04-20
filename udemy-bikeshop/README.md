@@ -19,16 +19,16 @@
 
 Losely coupled
 
-- Doctrine and Twig are optional, but work great 
+- Doctrine and Twig are optional, but work great
   out of the box and are well designed togeher (built by same team)
-  
+
 #### Environments
 
 - `dev`  : Cache accelerator = disabled; Log/Debug = on; Log = alerts, errors; Own DB?
 - `prod` : Cache accelerator = enabled; Debug = off; Log errors; Own DB?
 - `test` : CLI environment - Functional tests, Batch scripts; Simulates cookies/HTTP; Own DB?
 
-Best practices
+##### Best practices
 
 - Work in `dev` until things work fine, then switch to others
 
@@ -44,6 +44,8 @@ Best practices
 <br><br>
 
 ## Installation
+
+**IMPORTANT:** Also read the root folder README for all Symfony webs!
 
 ### Basics
 
