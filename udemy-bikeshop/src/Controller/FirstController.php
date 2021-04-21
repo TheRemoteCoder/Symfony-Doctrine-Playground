@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FirstController
 {
     /**
-     * @Route("/first")
+     * @Route("/first/{id}", methods={"GET", "POST"}, requirements={"id"="\d+"})
      */
     public function homepage(): Response
     {
