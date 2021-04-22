@@ -67,7 +67,13 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/example_store"
 
 Optional, if files exist – Create DB + tables with content.
 
+#### Create
+
+- `php bin/console make:migration`
 - `php bin/console doctrine:database:create`
+
+#### Migrate
+
 - `php bin/console doctrine:migrations:migrate`
 
 

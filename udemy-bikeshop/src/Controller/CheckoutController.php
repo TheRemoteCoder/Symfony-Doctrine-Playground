@@ -48,8 +48,8 @@ class CheckoutController extends AbstractController
             }
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($order);
-            $entityManager->flush();
+            $entityManager->persist($order); // Collects desired changes, but does not write YET
+            $entityManager->flush(); // NOW write (efficient single call)
 
             $this->sendEmailConfirmation($order, $mailer);
 
