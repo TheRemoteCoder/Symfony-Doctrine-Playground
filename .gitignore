@@ -1,4 +1,5 @@
 # Compiled output
+/vendor
 /build
 /dist
 /documentation
