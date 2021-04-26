@@ -67,7 +67,7 @@ class CheckoutController extends AbstractController
     private function sendEmailConfirmation(Order $order, MailerInterface $mailer)
     {
         $email = (new TemplatedEmail())
-            ->from('symfony@chrisworfolk.com')
+            ->from('symfony@example.com')
             ->to(new Address($order->getEmail(), $order->getName()))
             ->subject('Order confirmation')
             ->htmlTemplate('emails/order.html.twig')

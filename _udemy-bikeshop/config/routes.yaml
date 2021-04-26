@@ -1,5 +1,0 @@
-# Can also be done via annotations
-index:
-    path: /index
-    controller: App\Controller\FirstController::index
-
