@@ -2,6 +2,7 @@
 
 - [Intro](#intro)
 - [Setup](#setup)
+- [Snippets](#snippets)
 
 <br>
 
@@ -90,4 +91,17 @@ vagrant rsync
 # Only works if Homestead is used locally with project
 # For Symfony, it is a Composer dependency -> Use this then:
 vagrant rsync-auto
+```
+
+<br>
+
+---
+
+<br><br>
+
+## Snippets
+
+```txt
+# Dump app config
+php bin/console debug:config FrameworkBundle
 ```
