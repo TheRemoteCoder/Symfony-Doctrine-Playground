@@ -46,7 +46,7 @@ Useful commands after successful installation of Vagrant + Homestead.
 
 ##### Start
 
-Start + Login to Vagrant from Homestead installation:
+Start + Login to Vagrant from Homestead installation folder:
 
 ```txt
 vagrant up
@@ -81,10 +81,12 @@ vagrant reload
 
 ##### Update
 
+From from Homestead installation folder:
+
 ```txt
 # Manually synch local code with Vagrant (even from remote folders outside cwd)
 vagrant rsync
 
-# Might not work properly (code needs to be subfolder of Homestead or other issue?)
+# Does not work if project is -outside- Homestead (probably better for local project installation)
 vagrant rsync-auto ...
 ```

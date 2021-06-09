@@ -1,0 +1,34 @@
+ip: 192.168.10.10
+memory: 2048
+cpus: 2
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa_vagrant.pub
+keys:
+    - ~/.ssh/id_rsa_vagrant
+
+folders:
+    - map: /Volumes/V_DEV/Development/2-localhost/dev-6/udemy-realworld-app
+      to: /home/vagrant/code
+      type: "rsync" # nfs
+      options:
+          rsync__auto: true
+          rsync__args: ["--verbose", "--archive", "--delete", "-zz"]
+          rsync__exclude: ["node_modules"]
+
+sites:
+    - map: homestead.test
+      to: /home/vagrant/code/public
+
+databases:
+    - homestead
+
+features:
+    - mysql: true
+    - mariadb: false
+    - postgresql: false
+    - ohmyzsh: false
+    - webdriver: false
+
+name: udemy-realworld-app
+hostname: udemy-realworld-app
