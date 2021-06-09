@@ -3,6 +3,7 @@
 - [Intro](#intro)
 - [Setup](#setup)
 - [Snippets](#snippets)
+- [Notes](#notes)
 
 <br>
 
@@ -12,7 +13,7 @@
 
 ## Intro
 
-Course source
+Source of course:
 
 - [udemy](https://www.udemy.com/course/learn-symfony-4-hands-on-creating-a-real-world-application)
 
@@ -102,6 +103,17 @@ vagrant rsync-auto
 ## Snippets
 
 ```txt
-# Dump app config
+# Dump app configuration
 php bin/console debug:config FrameworkBundle
 ```
+
+<br>
+
+---
+
+<br><br>
+
+## Notes
+
+- Find custom comments with the prefix `@info`
+

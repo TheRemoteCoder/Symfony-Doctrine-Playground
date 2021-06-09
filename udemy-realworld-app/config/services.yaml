@@ -15,9 +15,9 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/'
-        exclude:
+        exclude: # @info Core logic - Not to be implemented directly
             - '../src/DependencyInjection/'
-            - '../src/Entity/'
+            - '../src/Entity/' # @info Database data, but no functionality
             - '../src/Kernel.php'
             - '../src/Tests/'
 
