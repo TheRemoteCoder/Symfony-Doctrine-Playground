@@ -40,19 +40,22 @@ Needed after configuration (note that it can reset/delete old changes, e.g. data
 vagrant up--provision
 ```
 
-
 #### Use
 
 Useful commands after successful installation of Vagrant + Homestead.
 
-Start + Login to Vagrant:
+##### Start
+
+Start + Login to Vagrant from Homestead installation:
 
 ```txt
 vagrant up
 vagrant ssh
 ```
 
-From within logged-in Vagrant:
+##### Configure
+
+Run from within logged-in Vagrant:
 
 ```txt
 # Default access
@@ -75,3 +78,12 @@ exit
 vagrant reload
 ```
 
+##### Update
+
+```txt
+# Manually synch local code with Vagrant (even from remote folders outside cwd)
+vagrant rsync
+
+# Might not work properly (code needs to be subfolder of Homestead or other issue?)
+vagrant rsync-auto ...
+```
