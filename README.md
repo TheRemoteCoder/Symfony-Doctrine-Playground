@@ -28,6 +28,10 @@ As of 2021/03: All Symfony setups are empty and unused, except for :
 
 ## Config
 
+Generic Symfony config.
+
+### ENV
+
 Set in `.env` file:
 
 ```txt
@@ -41,6 +45,8 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/example_store"
 <br><br>
 
 ## Setup
+
+Generic Symfony setup.
 
 ### Server certificate
 
