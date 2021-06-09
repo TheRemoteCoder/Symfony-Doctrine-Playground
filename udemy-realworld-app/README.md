@@ -60,7 +60,8 @@ Run from within logged-in Vagrant:
 ```txt
 # Default access
 mysql -u homestead -p
-# secret
+# Password
+secret
 
 # Create DB
 CREATE DATABASE `symfony-01`;

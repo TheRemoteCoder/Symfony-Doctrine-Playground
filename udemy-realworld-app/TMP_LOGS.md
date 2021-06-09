@@ -1,3 +1,11 @@
+CCN-MBP:homestead ego$ vagrant up --provision
+Bringing machine 'homestead' up with 'virtualbox' provider...
+==> homestead: This machine used to live in /Volumes/V_DEV/Development/1-tools/homestead but it's now at /Volumes/V_DEV/Development/2-localhost/dev-6/udemy-realworld-app/homestead.
+==> homestead: Depending on your current provider you may need to change the name of
+==> homestead: the machine to run it as a different machine.
+
+---
+
 Some files may have been created or updated to configure your new packages.
 Please review, edit and commit them: these files are yours.
 
