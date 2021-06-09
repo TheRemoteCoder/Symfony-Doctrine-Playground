@@ -19,8 +19,9 @@ Vagrant.require_version '>= 2.2.4'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+    # Don't work as expected
     # config.vm.synced_folder "." "/code", type: "rsync", rsync__auto: true
-    config.vm.synced_folder ".", "/vagrant"
+    # config.vm.synced_folder ".", "/vagrant"
 
     if File.exist? aliasesPath then
         config.vm.provision "file", source: aliasesPath, destination: "/tmp/bash_aliases"
