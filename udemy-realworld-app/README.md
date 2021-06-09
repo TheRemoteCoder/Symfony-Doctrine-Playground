@@ -25,10 +25,21 @@ Course source
 
 ### Homestead
 
-#### MacOS
+#### Setup
 
 - MacOS: Update native PHP version 7.3x to 7.4 via Homebrew
   - Needs a lot of custom configuration + Re-Aliasing the `php` command
+- Update `/etc/hosts` for new localhost domain
+- Configure `Homestead.yaml`
+  - Adjust paths and domains
+  - Change NFS to RSYNCH?
+
+Needed after configuration (note that it can reset/delete old changes, e.g. databases):
+
+```txt
+vagrant up--provision
+```
+
 
 #### Use
 
@@ -58,5 +69,9 @@ composer -v
 
 # Create Symfony project
 composer create-project symfony/website-skeleton symfony-01
+
+# Exit + Reload machine
+exit
+vagrant reload
 ```
 
