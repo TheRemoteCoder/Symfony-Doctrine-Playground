@@ -87,6 +87,7 @@ From from Homestead installation folder:
 # Manually synch local code with Vagrant (even from remote folders outside cwd)
 vagrant rsync
 
-# Does not work if project is -outside- Homestead (probably better for local project installation)
-vagrant rsync-auto ...
+# Only works if Homestead is used locally with project
+# For Symfony, it is a Composer dependency -> Use this then:
+vagrant rsync-auto
 ```
