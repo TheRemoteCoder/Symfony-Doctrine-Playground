@@ -13,10 +13,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class VeryBadDesign implements ContainerAwareInterface
 {
   /*+
+   * Annotation sets Service container?
    * @required
    */
   public function setContainer(?ContainerInterface $container = null)
   {
-    $container->get(Greeting::class);
+    // $container->get(Greeting::class); // By class
+    $container->get('app.greetingx'); // By alias
   }
 }

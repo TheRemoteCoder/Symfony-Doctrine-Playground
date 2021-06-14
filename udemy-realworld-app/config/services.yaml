@@ -10,10 +10,10 @@ services:
   _defaults:
     # @info Disabling autowire requires manual mapping (see below)
     autowire: true # Automatically injects dependencies in your services.
-    # @info Symfony creates tags automatically
+    # @info Symfony creates tags automatically (e.g. for classes that extends certain others)
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
     # @info Private by default (so no need to set here)
-    # true  = Directly access from container
+    # true  = Directly access from container (never set!)
     # false = Needs Dependency Injection
     public: false
 
@@ -25,17 +25,21 @@ services:
       - "../src/DependencyInjection/"
       - "../src/Entity/" # @info Database data, but no functionality
       - "../src/Kernel.php"
+      # - "../src/Migrations/"
       - "../src/Tests/"
       # - '../src/{Entity,Migrations,Tests,Kernel.php}/'
   # add more service definitions when explicit configuration is needed
   # please note that last definitions always *replace* previous ones
   # @info From udemy course, but not system default - Outdated?
   # App\Controller\:
-  #     resource: '../src/Controller'
-  #     tags: ['controller.service_arguments']
+  #   resource: "../src/Controller"
+  #   tags: ["controller.service_arguments"]
+  #
+  # ##
+  #
   # @info Manually wire if 'autowire: false' is set
   # App\Controller\BlogController: ['@App\Service\Greeting']
-  # App\Service\Greeting: ['@monolog.logger']
+  # App\Service\Greeting: ["@monolog.logger"]
   # Does not work: https://github.com/symfony/symfony/issues/36495
   # blog_controller:
   #     class: 'App\Controller\BlogController'
@@ -43,5 +47,14 @@ services:
   #     calls:
   #         - [index, ['@App\Service\Greeting']]
   #
+  # ##
+  #
   # App\Controller\BlogController:
   #     alias: 'blog_controller'
+  #
+  ##
+  #
+  # Create new service ID 'app.greeting'
+  app.greeting:
+    public: true
+    alias: App\Service\Greeting
