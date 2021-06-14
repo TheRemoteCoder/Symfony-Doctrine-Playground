@@ -15,7 +15,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/", name="blog_index")
+     * @Route("/", name="blog_index", stateless=true)
      */
     public function index(HttpFoundationRequest $request)
     {

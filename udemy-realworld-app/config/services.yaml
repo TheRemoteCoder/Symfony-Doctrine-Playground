@@ -8,8 +8,10 @@ parameters:
 services:
     # default configuration for services in *this* file
     _defaults:
+        # @info Disabling autowire requires manual mapping (see below)
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        # public: false     # @info Outdated = ?
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -20,6 +22,26 @@ services:
             - '../src/Entity/' # @info Database data, but no functionality
             - '../src/Kernel.php'
             - '../src/Tests/'
+            # - '../src/{Entity,Migrations,Tests,Kernel.php}/'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # @info From udemy course, but not system default - Outdated?
+    # App\Controller\:
+    #     resource: '../src/Controller'
+    #     tags: ['controller.service_arguments']
+
+    # @info Manually wire if 'autowire: false' is set
+    # App\Controller\BlogController: ['@App\Service\Greeting']
+    # App\Service\Greeting: ['@monolog.logger']
+
+    # Does not work: https://github.com/symfony/symfony/issues/36495
+    # blog_controller:
+    #     class: 'App\Controller\BlogController'
+    #     tags: ['controller.service_arguments', 'controller.service_subscriber']
+    #     calls:
+    #         - [index, ['@App\Service\Greeting']]
+    #
+    # App\Controller\BlogController:
+    #     alias: 'blog_controller'
