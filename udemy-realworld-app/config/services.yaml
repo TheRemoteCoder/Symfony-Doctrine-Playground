@@ -15,7 +15,7 @@ services:
     # @info Private by default (so no need to set here)
     # true  = Directly access from container
     # false = Needs Dependency Injection
-    # public: false
+    public: false
 
   # makes classes in src/ available to be used as services
   # this creates a service per class whose id is the fully-qualified class name
