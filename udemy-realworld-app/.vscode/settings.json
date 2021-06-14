@@ -33,6 +33,9 @@
 	"[markdown]": {
 		"editor.acceptSuggestionOnEnter": "off"
 	},
+	"[php]": {
+		"editor.defaultFormatter": "valeryanm.vscode-phpsab"
+	},
 	"emmet.includeLanguages": {
 		"twig": "html"
 	},

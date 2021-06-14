@@ -1,19 +1,25 @@
 {
-  "recommendations": [
-    "bmewburn.vscode-intelephense-client",
-    "christian-kohler.path-intellisense",
-    "dbaeumer.vscode-eslint",
-    "duboiss.sf-pack",
-    "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
-    "felixfbecker.php-intellisense",
-    "flowtype.flow-for-vscode",
-    "ikappas.phpcs",
-    "mkaufman.htmlhint",
-    "msjsdiag.debugger-for-chrome",
-    "nadim-vscode.symfony-code-snippets",
-    "nadim-vscode.symfony-super-console",
-    "stylelint.vscode-stylelint",
-    "thenouillet.symfony-vscode"
-  ]
+	"recommendations": [
+		"alefragnani.bookmarks",
+		"bmewburn.vscode-intelephense-client",
+		"christian-kohler.path-intellisense",
+		"dbaeumer.vscode-eslint",
+		"duboiss.sf-pack",
+		"eamodio.gitlens",
+		"editorconfig.editorconfig",
+		"esbenp.prettier-vscode",
+		"felixfbecker.php-intellisense",
+		"flowtype.flow-for-vscode",
+		"huizhou.githd",
+		"ikappas.phpcs",
+		"mehedidracula.php-namespace-resolver",
+		"mhutchie.git-graph",
+		"mkaufman.htmlhint",
+		"msjsdiag.debugger-for-chrome",
+		"nadim-vscode.symfony-code-snippets",
+		"nadim-vscode.symfony-super-console",
+		"stylelint.vscode-stylelint",
+		"thenouillet.symfony-vscode",
+		"valeryanm.vscode-phpsab"
+	]
 }
