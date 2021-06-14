@@ -11,10 +11,12 @@ services:
     # @info Disabling autowire requires manual mapping (see below)
     autowire: true # Automatically injects dependencies in your services.
 
-    # @info Symfony creates (service) tags automatically
+    # @info Symfony creates tags automatically
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
-    # @info Outdated = ?
+    # @info Private by default (so no need to set here)
+    # true  = Directly access from container
+    # false = Needs Dependency Injection
     # public: false
 
   # makes classes in src/ available to be used as services
