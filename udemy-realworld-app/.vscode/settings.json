@@ -34,7 +34,7 @@
 		"editor.acceptSuggestionOnEnter": "off"
 	},
 	"[php]": {
-		"editor.defaultFormatter": "valeryanm.vscode-phpsab",
+		"editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
 		"editor.insertSpaces": true,
 	},
 	"emmet.includeLanguages": {
