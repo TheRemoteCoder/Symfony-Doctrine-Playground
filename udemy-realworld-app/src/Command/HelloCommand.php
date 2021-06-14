@@ -8,6 +8,12 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Create own CLI commands.
+ *
+ * @example
+ *   php bin/console app:say-hello John
+ */
 class HelloCommand extends Command
 {
   public function __construct(Greeting $greeting)
@@ -31,5 +37,7 @@ class HelloCommand extends Command
 
     $output->writeln("Hello from app: \n =========");
     $output->writeln($this->greeting->greet($name));
+
+    return self::SUCCESS;
   }
 }
