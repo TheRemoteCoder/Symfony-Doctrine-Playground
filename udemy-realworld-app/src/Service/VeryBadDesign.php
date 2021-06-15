@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Service\Greeting; // Optional use?
+// use App\Service\Greeting; // Optional use?
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -25,6 +25,6 @@ class VeryBadDesign implements ContainerAwareInterface
   public function setContainer(?ContainerInterface $container = null)
   {
     // $container->get(Greeting::class); // By class
-    $container->get('app.greetingx'); // By alias
+    $container->get('app.greeting'); // By alias
   }
 }
