@@ -39,7 +39,7 @@ class ExampleController extends AbstractController
     $name = $request->get('name');
 
     // For demo purpose: Use own twig renderer: Allows to separate rendering markup from Response
-    $renderedMarkup = $this->twig->render('base.html.twig', [
+    $renderedMarkup = $this->twig->render('example.html.twig', [
       'message' => 'index(): ' . $this->greeting->greet($name)
     ]);
 
@@ -53,7 +53,7 @@ class ExampleController extends AbstractController
    */
   public function catchall($name): Response
   {
-    return $this->render('base.html.twig', [
+    return $this->render('example.html.twig', [
       'message' => "catchall(): $name"
     ]);
   }

@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -23,7 +22,7 @@ class BlogController extends AbstractController
   /**
    * @Route("/", name="blog_index")
    */
-  public function index(HttpFoundationRequest $request): Response
+  public function index(): Response
   {
     return $this->render('blog/index.html.twig', [
       'posts' => $this->session->get('posts')
@@ -33,8 +32,9 @@ class BlogController extends AbstractController
   /**
    * Create random post.
    *
-   * @todo Posts should not be stored in sessions
-   * @todo Redirect users to main page after adding post
+   * @todo Fix - Method must return some response object
+   * @todo Improve - Posts should not be stored in sessions
+   * @todo Improve - Redirect users to main page after adding post
    * @Route("/add", name="blog_add")
    */
   public function add()
