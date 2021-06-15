@@ -109,6 +109,9 @@ php bin/console debug:config FrameworkBundle
 # Services + Wiring
 php bin/console debug:autowiring LoggerInterface
 php bin/console debug:container monolog.logger
+
+# Show routes for current ENV
+php bin/console debug:router
 ```
 
 <br>

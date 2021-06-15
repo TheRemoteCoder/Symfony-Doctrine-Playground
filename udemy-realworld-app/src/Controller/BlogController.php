@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Prefix URL for all routes in Controller:
  * @Route("/blog")
  */
 class BlogController extends AbstractController
@@ -26,5 +25,19 @@ class BlogController extends AbstractController
     return $this->render('base.html.twig', [
       'message' => ''
     ]);
+  }
+
+  /**
+   * @Route("/add", name="blog_add")
+   */
+  public function add()
+  {
+  }
+
+  /**
+   * @Route("/show/{id}", name="blog_show")
+   */
+  public function show(int $id)
+  {
   }
 }
