@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -24,16 +25,29 @@ class BlogController extends AbstractController
    */
   public function index(HttpFoundationRequest $request): Response
   {
-    return $this->render('base.html.twig', [
-      'message' => ''
+    return $this->render('blog/index.html.twig', [
+      'posts' => $this->session->get('posts')
     ]);
   }
 
   /**
+   * Create random post.
+   *
+   * @todo Posts should not be stored in sessions
+   * @todo Redirect users to main page after adding post
    * @Route("/add", name="blog_add")
    */
   public function add()
   {
+    $posts = $this->session->get('posts');
+
+    $id = uniqid();
+    $posts[$id] = [
+      'title' => 'Random title ' . $id,
+      'text'  => 'Random text ' . $id,
+    ];
+
+    $this->session->set('posts', $posts);
   }
 
   /**
@@ -41,5 +55,10 @@ class BlogController extends AbstractController
    */
   public function show(int $id)
   {
+    $posts = $this->session->get('posts');
+
+    if (!$posts || !isset($posts[$id])) {
+      throw new NotFoundHttpException('Post not found.');
+    }
   }
 }
