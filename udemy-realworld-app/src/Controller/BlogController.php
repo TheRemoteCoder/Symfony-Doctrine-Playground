@@ -14,6 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
  *
  * Symfony 4: It's more restrictive than others, e.g. only a few services from container;
  * so it enforces Dependency Injection and not using the service container directly?
+ *
+ * Prefix URL for all routes in Controller:
+ * @Route("/blog")
  */
 class BlogController extends AbstractController
 {
