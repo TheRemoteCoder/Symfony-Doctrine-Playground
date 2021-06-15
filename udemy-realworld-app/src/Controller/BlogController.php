@@ -8,6 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * AbstractController is one of few other possible extensions (check source)
+ */
 class BlogController extends AbstractController
 {
   public function __construct(Greeting $greeting, VeryBadDesign $veryBadDesign)

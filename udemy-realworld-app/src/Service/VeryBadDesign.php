@@ -13,7 +13,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class VeryBadDesign implements ContainerAwareInterface
 {
   /*+
-   * Annotation sets Service container?
+   * Required annotation for service autowiring
+   * - https://symfony.com/doc/current/service_container/calls.html
+   *
    * @required
    */
   public function setContainer(?ContainerInterface $container = null)

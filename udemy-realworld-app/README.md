@@ -119,5 +119,5 @@ php bin/console debug:container monolog.logger
 
 ## Notes
 
-- Find custom comments with the prefix `@info`
-
+- Find custom comments with the prefix `@info` in any file not in the `/src` folder
+  - Source is considered custom code completely, so it's not needed here
