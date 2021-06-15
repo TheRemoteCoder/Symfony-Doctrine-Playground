@@ -58,7 +58,13 @@ class BlogController extends AbstractController
     $posts = $this->session->get('posts');
 
     if (!$posts || !isset($posts[$id])) {
+      // Throw 404 and use internal template
       throw new NotFoundHttpException('Post not found.');
     }
+
+    return $this->render('blog/post.html.twig', [
+      'id' => $id,
+      'post' => $posts[$id]
+    ]);
   }
 }
