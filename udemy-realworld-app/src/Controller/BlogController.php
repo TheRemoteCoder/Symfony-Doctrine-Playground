@@ -9,7 +9,10 @@ use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * AbstractController is one of few other possible extensions (check source)
+ * AbstractController is one of few other possible extensions (check source).
+ *
+ * Symfony 4: It's more restrictive than others, e.g. only a few services from container;
+ * so it enforces Dependency Injection and not using the service container directly?
  */
 class BlogController extends AbstractController
 {
@@ -24,6 +27,8 @@ class BlogController extends AbstractController
    */
   public function index(HttpFoundationRequest $request)
   {
+    // Cannot be used: 'AbstractController' does not allow accessing the service container directly
+    // $service = $this->get('app.greeting');
     $name = $request->get('name');
 
     return $this->render('base.html.twig', [

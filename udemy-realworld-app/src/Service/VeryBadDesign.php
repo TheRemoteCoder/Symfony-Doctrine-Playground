@@ -13,7 +13,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class VeryBadDesign implements ContainerAwareInterface
 {
   /*+
-   * Required annotation for service autowiring
+   * Required annotation for service autowiring: It will call method and autowire parameters.
+   * PHP 7 way to go; PHP8 can use attributes: #[Required]
+   *
+   * Sources
+   * - https://symfony.com/doc/current/service_container/autowiring.html
    * - https://symfony.com/doc/current/service_container/calls.html
    *
    * @required
