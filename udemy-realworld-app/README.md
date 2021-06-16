@@ -4,6 +4,7 @@
 - [Setup](#setup)
 - [Snippets](#snippets)
 - [Notes](#notes)
+- [Todo](#todo)
 
 <br>
 
@@ -124,3 +125,13 @@ php bin/console debug:router
 
 - Find custom comments with the prefix `@info` in any file not in the `/src` folder
   - Source is considered custom code completely, so it's not needed here
+
+<br>
+
+---
+
+<br><br>
+
+## Todo
+
+- Bug: Webpack/Encore does not work - Needed to comment out the bundle and config YAML
