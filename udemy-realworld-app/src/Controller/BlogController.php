@@ -3,20 +3,26 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\RouterInterface;
 
 /**
  * @Route("/blog")
  */
 class BlogController extends AbstractController
 {
-  public function __construct(\Twig\Environment $twig, SessionInterface $session)
-  {
+  public function __construct(
+    \Twig\Environment $twig,
+    SessionInterface $session,
+    RouterInterface $router
+  ) {
     $this->twig    = $twig;
     $this->session = $session;
+    $this->router  = $router;
   }
 
   /**
@@ -49,8 +55,10 @@ class BlogController extends AbstractController
 
     $this->session->set('posts', $posts);
 
-    // Not needed, just for visual demo
+    // Just for visual demo (or, similar to this, for creating an API?)
     // return new Response(json_encode($posts));
+
+    return new RedirectResponse($this->router->generate('blog_index'));
   }
 
   /**
