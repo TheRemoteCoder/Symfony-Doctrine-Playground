@@ -48,12 +48,15 @@ class BlogController extends AbstractController
     ];
 
     $this->session->set('posts', $posts);
+
+    // Not needed, just for visual demo
+    return new Response(json_encode($posts));
   }
 
   /**
    * @Route("/show/{id}", name="blog_show")
    */
-  public function show(int $id)
+  public function show(string $id)
   {
     $posts = $this->session->get('posts');
 
