@@ -5,6 +5,12 @@
 {% endblock %}
 
 {% block body %}
+
+	<h1>
+		<a href="{{ path('blog_add') }}">Add new post</a>
+	</h1>
+	<hr>
+
 	{% for id, post in posts %}
 
 		<p>
