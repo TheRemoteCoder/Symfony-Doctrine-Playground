@@ -134,4 +134,6 @@ php bin/console debug:router
 
 ## Todo
 
+- Research: Twig does not have any default templates installed as in vide?
+  - Find more reliable data sources if removed, why and where ...
 - Bug: Webpack/Encore does not work - Needed to comment out the bundle and config YAML
