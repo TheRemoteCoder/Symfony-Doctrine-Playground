@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Twig;
+
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
@@ -20,7 +22,7 @@ class AppExtension extends AbstractExtension
     return [new TwigFilter('price', [$this, 'priceFilter'])];
   }
 
-  private function priceFilter(float $price, $options)
+  public function priceFilter(float $price)
   {
     return '$' . number_format($price, 2);
   }
