@@ -7,7 +7,9 @@
 {% block body %}
 	{% for id, post in posts %}
 
-		<p>{{ id }}</p>
+		<p>
+			<a href="{{ path('blog_show', {'id':id}) }}">{{ id }}</a>
+		</p>
 		<h3>{{ post.title }}</h3>
 		<p>{{ post.text }}</p>
 
