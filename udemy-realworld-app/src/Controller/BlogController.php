@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -51,6 +52,7 @@ class BlogController extends AbstractController
     $posts[$id] = [
       'title' => 'Random title ' . $id,
       'text'  => 'Random text ' . $id,
+      'date'  => new DateTime(),
     ];
 
     $this->session->set('posts', $posts);
