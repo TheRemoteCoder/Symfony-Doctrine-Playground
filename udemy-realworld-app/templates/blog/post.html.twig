@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+
 	<p>{{ id }}</p>
 	<h3>{{ post.title }}</h3>
 	<p>{{ post.text }}</p>
@@ -17,7 +18,6 @@
 	<p>{{ app.environment }}</p>
 	<p>{{ app.user }}</p>
 	<p>{{ app.request }}</p>
-	<p>{{ app.session }}</p>
 	<p>{{ app.session.isStarted() }}</p>
 	<p>{{ app.debug }}</p>
 	<h4>Custom</h4>
@@ -26,5 +26,4 @@
 	<p>Message:
 		{{ message }}</p>
 
-	{{ dump() }}
 {% endblock %}
