@@ -10,11 +10,21 @@
 	<p>{{ post.text }}</p>
 	<p>{{ post.date | date('Y-m-d H:i:s') }}</p>
 	<p>{{ 1234 | price }}</p>
-
 	<br>
-	<p>
-		Locale:
-		{{ locale }}
-	</p>
 
+	<h3>Globals</h3>
+	<h4>Symfony</h4>
+	<p>{{ app.environment }}</p>
+	<p>{{ app.user }}</p>
+	<p>{{ app.request }}</p>
+	<p>{{ app.session }}</p>
+	<p>{{ app.session.isStarted() }}</p>
+	<p>{{ app.debug }}</p>
+	<h4>Custom</h4>
+	<p>Locale:
+		{{ locale }}</p>
+	<p>Message:
+		{{ message }}</p>
+
+	{{ dump() }}
 {% endblock %}

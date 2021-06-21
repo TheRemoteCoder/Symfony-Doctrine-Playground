@@ -6,19 +6,21 @@ use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface; // Deprecated
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 
 /**
+ * @todo Find out how to replace SessionInterface with new method
+ *
  * @Route("/blog")
  */
 class BlogController extends AbstractController
 {
   public function __construct(
     \Twig\Environment $twig,
-    SessionInterface $session,
+    SessionInterface $session, // Deprecated
     RouterInterface $router
   ) {
     $this->twig    = $twig;
