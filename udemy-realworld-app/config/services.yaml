@@ -33,7 +33,13 @@ services:
       # - "../src/Migrations/"
       - '../src/Tests/'
       # - '../src/{Entity,Migrations,Tests,Kernel.php}/'
+
+  # Pass string parameter to class that cannot be autowired
+  App\Twig\AppExtension:
+    arguments:
+      $locale: '%locale%'
   #
+  # ##
   #
   # App\Service\Greeting:
   # With autowire enabled, specify only what Symfony cannot fetch on its own
