@@ -6,6 +6,7 @@
 - [Debugging](#debugging)
 - [Maintenance](#maintenance)
 - [Doctrine](#doctrine)
+- [Issues](#issues)
 
 <br>
 
@@ -131,5 +132,26 @@ symfony check:security
 
 ```txt
 php bin/console doctrine:query:sql "SHOW VARIABLES"
+```
+
+<br>
+
+---
+
+<br><br>
+
+## Issues
+
+### Doctrine
+
+On error: The metadata storage is not up to date ...
+
+```txt
+# - Create migration, migrate?
+# - Sync metadata (did not work during test)
+# - change .env file MySQL to MariaDB version
+php bin/console doctrine:migrations:generate
+php bin/console doctrine:migrations:migrate
+php bin/console doctrine:migrations:sync-metadata-storage
 ```
 

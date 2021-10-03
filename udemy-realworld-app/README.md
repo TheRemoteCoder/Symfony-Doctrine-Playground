@@ -115,13 +115,6 @@ php bin/console debug:container monolog.logger
 
 # Show routes for current ENV
 php bin/console debug:router
-
-# ---
-
-# Doctrine
-
-# On error: The metadata storage is not up to date ...
-php bin/console doctrine:migrations:sync-metadata-storage
 ```
 
 <br>
