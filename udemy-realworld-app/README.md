@@ -40,7 +40,7 @@ Source of course:
 Needed after configuration (note that it can reset/delete old changes, e.g. databases):
 
 ```txt
-vagrant up--provision
+vagrant up --provision
 ```
 
 #### Use
