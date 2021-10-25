@@ -57,6 +57,7 @@ class MicroPostController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // die('Submitted + Valid');
         }
 
         return $this->render(

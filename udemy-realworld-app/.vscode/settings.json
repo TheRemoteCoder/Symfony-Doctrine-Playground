@@ -28,10 +28,10 @@
 		"html"
 	],
 	"[html]": {
-		// "editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[json]": {
-		//	"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[markdown]": {
 		"editor.acceptSuggestionOnEnter": "off"
@@ -39,6 +39,9 @@
 	"[php]": {
 		"editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
 		"editor.insertSpaces": true,
+	},
+	"[twig]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"emmet.includeLanguages": {
 		"twig": "html"

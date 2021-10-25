@@ -6,7 +6,8 @@
 
 {% block body %}
 
-	<h1>Form</h1>
-	<form></form>
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
 
 {% endblock %}
