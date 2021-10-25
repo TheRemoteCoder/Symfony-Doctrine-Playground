@@ -14,6 +14,8 @@
 	"files.trimTrailingWhitespace": true,
 	"files.associations": {
 		"*.html": "twig",
+		"*.html.twig": "twig",
+		"*.twig": "twig",
 		".*intrc": "json",
 		"*.php": "php"
 	},
@@ -27,12 +29,6 @@
 	"htmlhint.documentSelector": [
 		"html"
 	],
-	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
 	"[markdown]": {
 		"editor.acceptSuggestionOnEnter": "off"
 	},
@@ -40,8 +36,13 @@
 		"editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
 		"editor.insertSpaces": true,
 	},
+	"[html]": {
+		"editor.defaultFormatter": "mblode.twig-language-2",
+		"editor.insertSpaces": true,
+	},
 	"[twig]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "mblode.twig-language-2",
+		"editor.insertSpaces": true,
 	},
 	"emmet.includeLanguages": {
 		"twig": "html"
