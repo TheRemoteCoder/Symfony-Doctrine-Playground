@@ -37,6 +37,7 @@ class MicroPost
      */
     private $time;
 
+    // No setId() needed/recommended as it's generated
     public function getId(): ?int
     {
         return $this->id;
