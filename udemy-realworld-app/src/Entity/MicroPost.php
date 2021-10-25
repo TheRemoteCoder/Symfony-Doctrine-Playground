@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\MicroPostRepository;
 use Doctrine\ORM\Mapping as ORM;
+// Dummy path used for manual IntelliSense (VSCode issue?)
+use Doctrine\ORM\Mapping\GeneratedValue as GeneratedValue;
 
 /**
  * @ORM\Entity(repositoryClass=MicroPostRepository::class)
@@ -11,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 class MicroPost
 {
     /**
+     * @info 'GeneratedValue' can be other things like UUID.
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
