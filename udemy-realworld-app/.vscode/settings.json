@@ -6,7 +6,9 @@
 	"editor.insertSpaces": false,
 	"editor.useTabStops": false,
 	"editor.quickSuggestions": {
-		"comments": true
+		"comments": true,
+		"other": true,
+		"strings": true
 	},
 	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
@@ -50,7 +52,7 @@
 		"**/bower_components/**",
 		"**/vendor/**/{Test,test,Tests,tests}/**/*Test.php"
 	],
-	"symfony-vscode.phpExecutablePath": "c:\\\\xampp\\\\php\\\\php.exe",
+	"symfony-vscode.phpExecutablePath": "c:\\xampp\\php\\php.exe",
 	/* * /
   "terminal.integrated.fontSize": 14,
   "workbench.colorCustomizations": {
