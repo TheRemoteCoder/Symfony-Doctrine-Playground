@@ -115,8 +115,13 @@ php bin/console debug:router
 php bin/console make:migration
 php bin/console doctrine:migrations:diff
 
-# Update database
+# Update database (apply all to latest)
 php bin/console doctrine:migrations:migrate
+
+# Revert last / Apply next
+php bin/console doctrine:migrations:migrate prev
+php bin/console doctrine:migrations:migrate next
+
 ```
 
 ### Entities
