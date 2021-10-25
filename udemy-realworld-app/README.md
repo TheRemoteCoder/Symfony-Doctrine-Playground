@@ -122,6 +122,8 @@ php bin/console doctrine:migrations:migrate
 php bin/console doctrine:migrations:migrate prev
 php bin/console doctrine:migrations:migrate next
 
+# Auto-execute without manual step (for Build/Deployment)
+php bin/console doctrine:migrations:migrate --no-interaction
 ```
 
 ### Entities
