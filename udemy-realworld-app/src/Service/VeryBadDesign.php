@@ -12,19 +12,19 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class VeryBadDesign implements ContainerAwareInterface
 {
-  /**
-   * Required annotation for service autowiring: It will call method and autowire parameters.
-   * This is the PHP 7 way - PHP 8 can use attributes: #[Required]
-   *
-   * Sources
-   * - https://symfony.com/doc/current/service_container/autowiring.html
-   * - https://symfony.com/doc/current/service_container/calls.html
-   *
-   * @required
-   */
-  public function setContainer(?ContainerInterface $container = null)
-  {
-    // $container->get(Greeting::class); // By class
-    $container->get('app.greeting'); // By alias
-  }
+    /**
+     * Required annotation for service autowiring: It will call method and autowire parameters.
+     * This is the PHP 7 way - PHP 8 can use attributes: #[Required]
+     *
+     * Sources
+     * - https://symfony.com/doc/current/service_container/autowiring.html
+     * - https://symfony.com/doc/current/service_container/calls.html
+     *
+     * @required
+     */
+    public function setContainer(?ContainerInterface $container = null)
+    {
+        // $container->get(Greeting::class); // By class
+        // $container->get('app.greeting'); // By alias
+    }
 }
