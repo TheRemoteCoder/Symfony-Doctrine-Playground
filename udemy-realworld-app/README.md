@@ -105,6 +105,8 @@ vagrant rsync-auto
 
 ## Snippets
 
+### Debug / Internals
+
 ```txt
 # Dump app configuration
 php bin/console debug:config FrameworkBundle
@@ -115,6 +117,23 @@ php bin/console debug:container monolog.logger
 
 # Show routes for current ENV
 php bin/console debug:router
+```
+
+### Doctrine
+
+```txt
+# Create migration SQL command file under /migrations/
+php bin/console make:migration
+
+# Update database
+php bin/console doctrine:migrations:migrate
+```
+
+### Entities
+
+```txt
+# Entities
+php bin/console make:entity Example
 ```
 
 <br>

@@ -14,7 +14,7 @@ use Twig\TwigFilter;
  * @example
  *   php bin/console debug:container 'App\Twig\AppExtension'
  *
- * @todo Decide - Should this be a subfolder to Service/ as it basically is one?
+ * @todo Research - Could/Should this be a subfolder to Service/ as it basically is one?
  */
 class AppExtension extends AbstractExtension implements GlobalsInterface
 {
