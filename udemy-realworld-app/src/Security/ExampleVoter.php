@@ -12,8 +12,8 @@ class ExampleVoter implements VoterInterface
      *
      * @see VoterInterface
      */
-    public function vote(TokenInterface $token, $subject, array $attributes) : int
+    public function vote(TokenInterface $token, $subject, array $attributes): int
     {
-      return self::ACCESS_GRANTED;
+        return self::ACCESS_GRANTED;
     }
 }

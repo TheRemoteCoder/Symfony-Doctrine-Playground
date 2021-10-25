@@ -14,7 +14,8 @@
 	"files.trimTrailingWhitespace": true,
 	"files.associations": {
 		"*.html": "twig",
-		".*intrc": "json"
+		".*intrc": "json",
+		"*.php": "php"
 	},
 	"css.validate": false,
 	"json.format.enable": true,
@@ -49,9 +50,12 @@
 		"**/CVS/**",
 		"**/.DS_Store/**",
 		"**/node_modules/**",
-		"**/bower_components/**",
-		"**/vendor/**/{Test,test,Tests,tests}/**/*Test.php"
+		"**/bower_components/**"
+		//	"**/vendor/**/{Test,test,Tests,tests}/**/*Test.php"
 	],
+	"path-intellisense.mappings": {
+		"vendor": "${workspaceFolder}/vendor"
+	},
 	"symfony-vscode.phpExecutablePath": "c:\\xampp\\php\\php.exe",
 	/* * /
   "terminal.integrated.fontSize": 14,

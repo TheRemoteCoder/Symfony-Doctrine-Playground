@@ -20,41 +20,41 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ExampleController extends AbstractController
 {
-  public function __construct(Greeting $greeting, VeryBadDesign $veryBadDesign, \Twig\Environment $twig)
-  {
-    $this->greeting = $greeting;
-    $this->veryBadDesign = $veryBadDesign;
-    $this->twig = $twig;
-  }
+    public function __construct(Greeting $greeting, VeryBadDesign $veryBadDesign, \Twig\Environment $twig)
+    {
+        $this->greeting = $greeting;
+        $this->veryBadDesign = $veryBadDesign;
+        $this->twig = $twig;
+    }
 
-  /**
-   * 'HttpFoundationRequest' as 'argument resolver' (you can add any other compatible?)
-   *
-   * @Route("/", name="example_index")
-   */
-  public function index(HttpFoundationRequest $request): Response
-  {
-    // Cannot be used: 'AbstractController' does not allow accessing the service container directly
-    // $service = $this->get('app.greeting');
-    $name = $request->get('name');
+    /**
+     * 'HttpFoundationRequest' as 'argument resolver' (you can add any other compatible?)
+     *
+     * @Route("/", name="example_index")
+     */
+    public function index(HttpFoundationRequest $request): Response
+    {
+        // Cannot be used: 'AbstractController' does not allow accessing the service container directly
+        // $service = $this->get('app.greeting');
+        $name = $request->get('name');
 
-    // For demo purpose: Use own twig renderer: Allows to separate rendering markup from Response
-    $renderedMarkup = $this->twig->render('example.html.twig', [
-      'message' => 'index(): ' . $this->greeting->greet($name)
-    ]);
+        // For demo purpose: Use own twig renderer: Allows to separate rendering markup from Response
+        $renderedMarkup = $this->twig->render('example.html.twig', [
+            'message' => 'index(): ' . $this->greeting->greet($name)
+        ]);
 
-    return new Response($renderedMarkup);
-  }
+        return new Response($renderedMarkup);
+    }
 
-  /**
-   * Catch-all route.
-   *
-   * @Route("/{name}", name="example_catchall", stateless=true)
-   */
-  public function catchall($name): Response
-  {
-    return $this->render('example.html.twig', [
-      'message' => "catchall(): $name"
-    ]);
-  }
+    /**
+     * Catch-all route.
+     *
+     * @Route("/{name}", name="example_catchall", stateless=true)
+     */
+    public function catchall($name): Response
+    {
+        return $this->render('example.html.twig', [
+            'message' => "catchall(): $name"
+        ]);
+    }
 }
