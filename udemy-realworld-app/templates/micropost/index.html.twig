@@ -5,4 +5,11 @@
 {% endblock %}
 
 {% block body %}
+	{% for id, post in posts %}
+		<h3>{{ post.title | upper }}</h3>
+		<p>{{ post.time | date('Y-m-d H:i:s') }}</p>
+		<p>
+			<a href="{{ path('blog_show', {'id':id}) }}">{{ id }}</a>
+		</p>
+	{% endfor %}
 {% endblock %}

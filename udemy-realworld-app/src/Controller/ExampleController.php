@@ -39,11 +39,11 @@ class ExampleController extends AbstractController
         $name = $request->get('name');
 
         // For demo purpose: Use own twig renderer: Allows to separate rendering markup from Response
-        $renderedMarkup = $this->twig->render('example.html.twig', [
+        $html = $this->twig->render('example.html.twig', [
             'message' => 'index(): ' . $this->greeting->greet($name)
         ]);
 
-        return new Response($renderedMarkup);
+        return new Response($html);
     }
 
     /**

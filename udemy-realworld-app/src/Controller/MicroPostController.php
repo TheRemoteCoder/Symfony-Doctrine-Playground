@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\RouterInterface;
+use App\Repository\MicroPostRepository;
 
 /**
  * @todo Find out how to replace SessionInterface with new method
@@ -16,10 +16,10 @@ class MicroPostController extends AbstractController
 {
     public function __construct(
         \Twig\Environment $twig,
-        RouterInterface $router
+        MicroPostRepository $microPostRepository
     ) {
-        $this->twig    = $twig;
-        $this->router  = $router;
+        $this->twig = $twig;
+        $this->microPostRepository  = $microPostRepository;
     }
 
     /**
@@ -27,6 +27,10 @@ class MicroPostController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('micropost/index.html.twig', []);
+        $html = $this->twig->render('micropost/index.html.twig', [
+            'posts' => $this->microPostRepository->findAll()
+        ]);
+
+        return new Response($html);
     }
 }

@@ -7,6 +7,9 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+ * Test with:
+ * - php bin/console debug:container 'App\Repository\MicroPostRepository'
+ *
  * @method MicroPost|null find($id, $lockMode = null, $lockVersion = null)
  * @method MicroPost|null findOneBy(array $criteria, array $orderBy = null)
  * @method MicroPost[]    findAll()

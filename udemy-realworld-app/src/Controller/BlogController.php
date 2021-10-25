@@ -54,7 +54,7 @@ class BlogController extends AbstractController
         $posts[$id] = [
             'title' => 'Random title ' . $id,
             'text'  => 'Random text ' . $id,
-            'date'  => new DateTime(),
+            'time'  => new DateTime(),
         ];
 
         $this->session->set('posts', $posts);
