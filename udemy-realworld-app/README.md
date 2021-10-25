@@ -111,7 +111,9 @@ php bin/console debug:router
 
 ```txt
 # Create migration SQL command file under /migrations/
+# 'make' is a Symfony CLI alias for Doctrine
 php bin/console make:migration
+php bin/console doctrine:migrations:diff
 
 # Update database
 php bin/console doctrine:migrations:migrate

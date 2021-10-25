@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping\GeneratedValue as GeneratedValue;
 class MicroPost
 {
     /**
-     * @info 'GeneratedValue' can be other things like UUID.
+     * 'GeneratedValue' can be other things like UUID.
      *
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -27,14 +27,14 @@ class MicroPost
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=280)
      */
     private $text;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date;
+    private $time;
 
     public function getId(): ?int
     {
@@ -65,14 +65,14 @@ class MicroPost
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getTime(): ?\DateTimeInterface
     {
-        return $this->date;
+        return $this->time;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setTime(\DateTimeInterface $time): self
     {
-        $this->date = $date;
+        $this->time = $time;
 
         return $this;
     }
