@@ -11,6 +11,8 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $this->createPosts($manager);
+
+        // Handles persisting of -all- data
         $manager->flush();
     }
 
@@ -24,8 +26,11 @@ class AppFixtures extends Fixture
     {
         for ($i = 0; $i < 10; $i++) {
             $post = new MicroPost();
+            $post->setTitle('Random title: ' . rand(0, 100));
             $post->setText('Random text: ' . rand(0, 100));
             $post->setTime(new \DateTime('now'));
+
+            // Queues objects -to be- persisted (later)
             $manager->persist($post);
         }
     }

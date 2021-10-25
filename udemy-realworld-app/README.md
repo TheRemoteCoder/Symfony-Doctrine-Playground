@@ -110,6 +110,14 @@ php bin/console debug:router
 
 ### Doctrine
 
+#### Fixtures
+
+```txt
+php bin/console doctrine:fixtures:load
+```
+
+#### SQL
+
 ```txt
 # Create migration SQL command file under /migrations/
 # 'make' is a Symfony CLI alias for Doctrine

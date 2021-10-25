@@ -1,6 +1,13 @@
 # udemy course - Real world app
 
+- [General](#general)
 - [Q+A](#qa)
+
+---
+
+## General
+
+- [ ] Migrate knowledge in own data structures/folders (e.g. snippets)
 
 ---
 
