@@ -15,7 +15,7 @@ composer.lock
 package-lock.json
 
 # Environment
-.env
+# .env
 
 # IDEs + Editors
 *.launch
