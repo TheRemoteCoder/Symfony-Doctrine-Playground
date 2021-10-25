@@ -1,9 +1,7 @@
 {
-  "build/js/app.css": "/build/js/app.b75294ae.css",
-  "build/js/app.js": "/build/js/app.981bdb8a.js",
-  "build/js/bootstrap.js": "/build/js/bootstrap.868714a4.js",
-  "build/js/holder.js": "/build/js/holder.dee4aa47.js",
-  "build/runtime.js": "/build/runtime.9552b983.js",
-  "build/758.adda8dd1.js": "/build/758.adda8dd1.js",
-  "build/977.3dc96e97.css": "/build/977.3dc96e97.css"
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_bootstrap_dist_js_boo-129507.css": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_bootstrap_dist_js_boo-129507.css",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_bootstrap_dist_js_boo-129507.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_bootstrap_dist_js_boo-129507.js"
 }

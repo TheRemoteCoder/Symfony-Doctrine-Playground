@@ -7,17 +7,30 @@
 			{% endblock %}
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle` and uncomment the following Encore helpers to start using Symfony UX #}
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		{% block stylesheets %}
-			{#{{ encore_entry_link_tags('app') }}#}
+			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
 		{% block javascripts %}
-			{#{{ encore_entry_script_tags('app') }}#}
+			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
 	</head>
-	<body>
+	<body class="bg-light">
+		<nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark p-0">
+			<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{ path('micro_post_index') }}">Micro Post App</a>
+			<div class="w-100 order-1 order-md-0">
+				<ul class="navbar-nav px-3">...</ul>
+			</div>
+
+			<div class="order-2 order-md-1">
+				<ul class="navbar-nav px-3"></ul>
+			</div>
+		</nav>
 		<main role="main" class="container">
-			<h1>Header</h1>
-			{% block body %}{% endblock %}
+			<div class="my-3 p-3 bg-white rounded box-shadow">
+				<h1>Body</h1>
+				{% block body %}{% endblock %}
+			</div>
 		</main>
 	</body>
 </html>
