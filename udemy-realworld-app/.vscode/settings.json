@@ -50,6 +50,7 @@
 		"**/bower_components/**",
 		"**/vendor/**/{Test,test,Tests,tests}/**/*Test.php"
 	],
+	"symfony-vscode.phpExecutablePath": "c:\\\\xampp\\\\php\\\\php.exe",
 	/* * /
   "terminal.integrated.fontSize": 14,
   "workbench.colorCustomizations": {
