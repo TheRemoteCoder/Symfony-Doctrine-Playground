@@ -18,7 +18,17 @@ Source of course:
 
 ## Setup
 
+### Manual
+
+Assuming any local server (PHP, MySQL) exists and is running and Homestead is not an option.
+
+- Install vendor + NPM packages
+- Setup DB via Symfony CLI / Doctrine (see snippets)
+- Build frontend via `npm run build`
+
 ### Homestead
+
+Assuming no other server is being used.
 
 #### Installation
 
@@ -92,6 +102,13 @@ vagrant rsync-auto
 ---
 
 ## Snippets
+
+### Frontend
+
+```txt
+# Webpack / Encore
+npm run build
+```
 
 ### Debug / Internals
 
