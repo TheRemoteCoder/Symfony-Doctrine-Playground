@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block body %}
-    <h1>
-        <a href="{{ path('micropost_add') }}">Add new post</a>
-    </h1>
+	<h1>
+		<a href="{{ path('micropost_add') }}">Add new post</a>
+	</h1>
 
 	{% for id, post in posts %}
 		<h2>{{ post.title | upper }}</h3>
