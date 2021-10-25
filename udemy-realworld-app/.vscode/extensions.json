@@ -1,17 +1,13 @@
 {
 	"recommendations": [
-		"alefragnani.bookmarks",
 		"bmewburn.vscode-intelephense-client",
 		"christian-kohler.path-intellisense",
 		"dbaeumer.vscode-eslint",
 		"duboiss.sf-pack",
-		"eamodio.gitlens",
 		"editorconfig.editorconfig",
-		"huizhou.githd",
 		"ikappas.phpcs",
 		"mblode.twig-language-2",
 		"mehedidracula.php-namespace-resolver",
-		"mhutchie.git-graph",
 		"mkaufman.htmlhint",
 		"nadim-vscode.symfony-code-snippets",
 		"nadim-vscode.symfony-super-console",
