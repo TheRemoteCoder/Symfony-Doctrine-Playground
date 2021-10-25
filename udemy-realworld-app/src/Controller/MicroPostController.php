@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\MicroPost;
 use App\Repository\MicroPostRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @todo Find out how to replace SessionInterface with new method
@@ -16,10 +19,12 @@ class MicroPostController extends AbstractController
 {
     public function __construct(
         \Twig\Environment $twig,
+        FormFactoryInterface $formFactory,
         MicroPostRepository $microPostRepository
     ) {
         $this->twig = $twig;
-        $this->microPostRepository  = $microPostRepository;
+        $this->formFactory = $formFactory;
+        $this->microPostRepository = $microPostRepository;
     }
 
     /**
@@ -39,8 +44,26 @@ class MicroPostController extends AbstractController
      *
      * @Route("/add", name="micropost_add")
      */
-    public function add()
+    public function add(HttpFoundationRequest $request): Response
     {
-        return $this->render('micropost/add.html.twig', []);
+        $post = new MicroPost();
+        $post->setTime(new \DateTime());
+
+        $form = $this->formFactory->create(
+            MicroPostType::class,
+            $post
+        );
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+        }
+
+        return $this->render(
+            'micropost/add.html.twig',
+            [
+                'form' => $form->createView()
+            ]
+        );
     }
 }
