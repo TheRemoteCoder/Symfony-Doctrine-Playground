@@ -8,15 +8,15 @@
 
 	<p>{{ id }}</p>
 
-	<h3>{{ post.title }}</h3>
+	<h1>{{ post.title }}</h3>
 	<p>{{ post.text }}</p>
 	<p>{{ post.time | date('Y-m-d H:i:s') }}</p>
 	<p>{{ 1234 | price }}</p>
 	<br>
 
-	<h3>Globals</h3>
+	<h2>Globals</h3>
 
-	<h4>Symfony</h4>
+	<h3>Symfony</h4>
 	<p>{{ app.environment }}</p>
 	<p>{{ app.user }}</p>
 	<p>{{ app.request }}</p>
@@ -26,7 +26,7 @@
 	<p>{{ app.session.isStarted() }}</p>
 	<p>{{ app.debug }}</p>
 
-	<h4>Custom</h4>
+	<h3>Custom</h4>
 	<p>Locale:
 		{{ locale }}</p>
 	<p>Message:

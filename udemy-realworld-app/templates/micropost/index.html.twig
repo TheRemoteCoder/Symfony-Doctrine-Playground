@@ -5,8 +5,12 @@
 {% endblock %}
 
 {% block body %}
+    <h1>
+        <a href="{{ path('micropost_add') }}">Add new post</a>
+    </h1>
+
 	{% for id, post in posts %}
-		<h3>{{ post.title | upper }}</h3>
+		<h2>{{ post.title | upper }}</h3>
 		<p>{{ post.time | date('Y-m-d H:i:s') }}</p>
 	{% endfor %}
 {% endblock %}

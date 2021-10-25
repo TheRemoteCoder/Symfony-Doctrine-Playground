@@ -23,7 +23,7 @@ class MicroPostController extends AbstractController
     }
 
     /**
-     * @Route("/", name="micro_post_index")
+     * @Route("/", name="micropost_index")
      */
     public function index(): Response
     {
@@ -32,5 +32,15 @@ class MicroPostController extends AbstractController
         ]);
 
         return new Response($html);
+    }
+
+    /**
+     * Create post.
+     *
+     * @Route("/add", name="micropost_add")
+     */
+    public function add()
+    {
+        return $this->render('micropost/add.html.twig', []);
     }
 }
