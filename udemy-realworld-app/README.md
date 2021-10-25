@@ -6,11 +6,7 @@
 - [Notes](#notes)
 - [Todo](#todo)
 
-<br>
-
 ---
-
-<br><br>
 
 ## Intro
 
@@ -18,17 +14,13 @@ Source of course:
 
 - [udemy](https://www.udemy.com/course/learn-symfony-4-hands-on-creating-a-real-world-application)
 
-<br>
-
 ---
-
-<br><br>
 
 ## Setup
 
 ### Homestead
 
-#### Setup
+#### Installation
 
 - MacOS: Update native PHP version 7.3x to 7.4 via Homebrew
   - Needs a lot of custom configuration + Re-Aliasing the `php` command
@@ -97,11 +89,7 @@ vagrant rsync
 vagrant rsync-auto
 ```
 
-<br>
-
 ---
-
-<br><br>
 
 ## Snippets
 
@@ -136,22 +124,14 @@ php bin/console doctrine:migrations:migrate
 php bin/console make:entity Example
 ```
 
-<br>
-
 ---
-
-<br><br>
 
 ## Notes
 
 - Find custom comments with the prefix `@info` in any file not in the `/src` folder
   - Source is considered custom code completely, so it's not needed here
 
-<br>
-
 ---
-
-<br><br>
 
 ## Todo
 
