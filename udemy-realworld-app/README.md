@@ -113,7 +113,14 @@ php bin/console debug:router
 #### Fixtures
 
 ```txt
+# Apply fixtures as SQL and write/override DB table
 php bin/console doctrine:fixtures:load
+
+# Apply fixtures (and reset auto-increment of IDs)
+php bin/console doctrine:fixtures:load --purge-with-truncate
+
+# Show help commands
+php bin/console doctrine:fixtures:load --help
 ```
 
 #### SQL
