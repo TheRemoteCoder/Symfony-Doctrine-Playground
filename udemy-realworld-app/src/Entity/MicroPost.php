@@ -14,6 +14,7 @@ class MicroPost
 {
     /**
      * 'GeneratedValue' can be other things like UUID.
+     * Can be named anything - the ORM\Id is important.
      *
      * @ORM\Id
      * @ORM\GeneratedValue
