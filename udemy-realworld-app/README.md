@@ -157,6 +157,9 @@ php bin/console doctrine:migrations:migrate next
 
 # Auto-execute without manual step (for Build/Deployment)
 php bin/console doctrine:migrations:migrate --no-interaction
+
+# Drop DB (e.g. to reset if sth. is wrong with migrations)
+php bin/console doctrine:database:drop --force
 ```
 
 ### Entities
