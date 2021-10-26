@@ -45,17 +45,20 @@ class MicroPostController extends AbstractController
     /**
      * Create post.
      *
+     * @todo How to use forms with pure array data?
      * @todo How is form data associated with MicroPost?
      * @todo Why is initial data with $post needed?
+     * @see https://symfony.com/doc/current/form/without_class.html
      * @Route("/add", name="micropost_add")
      */
     public function add(HttpFoundationRequest $request): Response
     {
         $microPost = new MicroPost();
         $microPost->setTime(new \DateTime());
+        //$microPost->setText('TEXT:DEFAULT');
 
         // Class defines the form structure requirement: Form must match the Entity properties
-        // The passed data object is later modified, but how - No reference (?)
+        // Parameter 1 = Required (form fields), Parameter 2 = Optional (default values).
         $form = $this->formFactory->create(
             MicroPostType::class,
             $microPost
@@ -72,6 +75,7 @@ class MicroPostController extends AbstractController
         if ($form->isSubmitted()) {
             var_dump('POST 2');
             var_dump($microPost);
+            //var_dump($form->getData()); // Object
             //die;
         }
 
