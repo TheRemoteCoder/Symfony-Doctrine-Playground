@@ -7,9 +7,11 @@ use App\Repository\MicroPostRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\RouterInterface;
 
 /**
  * @todo Find out how to replace SessionInterface with new method
@@ -22,11 +24,13 @@ class MicroPostController extends AbstractController
         EntityManagerInterface $entityManager,
         FormFactoryInterface $formFactory,
         MicroPostRepository $microPostRepository,
+        RouterInterface $router,
         \Twig\Environment $twig
     ) {
         $this->entityManager = $entityManager;
         $this->formFactory = $formFactory;
         $this->microPostRepository = $microPostRepository;
+        $this->router = $router;
         $this->twig = $twig;
     }
 
@@ -45,9 +49,8 @@ class MicroPostController extends AbstractController
     /**
      * Create post.
      *
-     * @todo How to use forms with pure array data?
-     * @todo How is form data associated with MicroPost?
-     * @todo Why is initial data with $post needed?
+     * @todo How is form data associated (entity properties are filled after 'handleRequest'/submit?
+     * @todo How to use forms with pure array data (not MicroPost object)?
      * @see https://symfony.com/doc/current/form/without_class.html
      * @Route("/add", name="micropost_add")
      */
@@ -82,6 +85,7 @@ class MicroPostController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->entityManager->persist($microPost);
             $this->entityManager->flush();
+            // return new RedirectResponse($this->router->generate('micropost_index'));
         }
 
         return $this->render(
