@@ -15,6 +15,12 @@
 
 ### Symfony
 
+General
+
+- [ ] Check 'todo' comments in code
+
+Specific
+
 - [ ] Why do -some- classes need constructor() import and others not?
   - e.g. Factory/Repository classes
   - Service container autowiring?
