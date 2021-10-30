@@ -71,7 +71,7 @@ class MicroPostController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->entityManager->persist($post);
+            // Persist is not needed on change (it already exists)
             $this->entityManager->flush();
         }
 
@@ -120,8 +120,11 @@ class MicroPostController extends AbstractController
         }
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Persist only needed for creating new data sets
             $this->entityManager->persist($microPost);
             $this->entityManager->flush();
+
+            // Alternative (usually done this way)
             // return new RedirectResponse($this->router->generate('micropost_index'));
         }
 
