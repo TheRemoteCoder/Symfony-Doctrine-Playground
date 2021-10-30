@@ -108,6 +108,9 @@ class MicroPostController extends AbstractController
      * Symfony will automatically look up the required route parameter in it
      * and auto-fetches the required data.
      *
+     * This is visible in the debug toolbar under Doctrine, when on the page for a single post:
+     * - https://127.0.0.1:8000/_profiler/3fb394?panel=db
+     *
      * @Route("/{id}", name="micropost_post")
      */
     public function post(MicroPost $post): Response
