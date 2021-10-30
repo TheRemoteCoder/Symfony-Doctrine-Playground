@@ -5,12 +5,8 @@
 {% endblock %}
 
 {% block body %}
-	<h1>
-		<a href="{{ path('micropost_add') }}">Add new post</a>
-	</h1>
-
+	<h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
 	{% for id, post in posts %}
-		<h2>{{ post.title | upper }}</h3>
-		<p>{{ post.time | date('Y-m-d H:i:s') }}</p>
+		{{ include('micropost/post-raw.html.twig', { 'post': post }) }}
 	{% endfor %}
 {% endblock %}

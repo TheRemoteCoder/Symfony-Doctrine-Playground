@@ -16,6 +16,9 @@ use Symfony\Component\Routing\RouterInterface;
 /**
  * @todo Find out how to replace SessionInterface with new method
  *
+ * IMPORTANT: Route ordering of methods matters to Symfony!
+ * What is written first here, is first evaluated.
+ *
  * @Route("/micropost")
  */
 class MicroPostController extends AbstractController
@@ -94,5 +97,16 @@ class MicroPostController extends AbstractController
                 'form' => $form->createView()
             ]
         );
+    }
+
+    /**
+     * Warning: Beware of Symfony magic of route ordering:
+     * 'id' would pick up any string after slash, so other routes might not work anymore.
+     * Put this in the correct order - here ideally last, or better rename it to be unique.
+     *
+     * @Route("/{id}", name="micropost_post")
+     */
+    public function post(int $id): void
+    {
     }
 }

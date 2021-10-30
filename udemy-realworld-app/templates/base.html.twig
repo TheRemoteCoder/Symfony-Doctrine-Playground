@@ -20,16 +20,23 @@
 		<nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark p-0">
 			<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{ path('micropost_index') }}">Micro Post App</a>
 			<div class="w-100 order-1 order-md-0">
-				<ul class="navbar-nav px-3">...</ul>
+				<ul class="navbar-nav px-3">
+					<li class="nav-item text-nowrap">
+						<a class="nav-link" href="{{ path('micropost_add') }}">
+							{{ 'Add new post' | trans }}
+						</a>
+					</li>
+				</ul>
 			</div>
-
 			<div class="order-2 order-md-1">
 				<ul class="navbar-nav px-3"></ul>
 			</div>
 		</nav>
 		<main role="main" class="container">
 			<div class="my-3 p-3 bg-white rounded box-shadow">
-				<h1>Body</h1>
+				&nbsp;
+				<!-- Fixes formatting bug -->
+
 				{% block body %}{% endblock %}
 			</div>
 		</main>

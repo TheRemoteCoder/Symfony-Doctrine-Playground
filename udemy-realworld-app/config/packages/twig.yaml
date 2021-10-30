@@ -4,7 +4,7 @@ twig:
   globals:
     message: 'Hello from twig.yaml'
   # Part of Symfony/Twig-Bridge: \vendor\symfony\twig-bridge\Resources\views\Form\*
-  form_themes: ['bootstrap_5_layout.html.twig']
+  form_themes: ['bootstrap_4_layout.html.twig']
 
 when@test:
   twig:
