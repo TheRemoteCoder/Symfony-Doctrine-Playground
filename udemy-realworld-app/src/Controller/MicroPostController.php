@@ -104,9 +104,31 @@ class MicroPostController extends AbstractController
      * 'id' would pick up any string after slash, so other routes might not work anymore.
      * Put this in the correct order - here ideally last, or better rename it to be unique.
      *
+     * Symfony way (Param converter): By supplying the class as parameter,
+     * Symfony will automatically look up the required route parameter in it
+     * and auto-fetches the required data.
+     *
      * @Route("/{id}", name="micropost_post")
      */
-    public function post(int $id): void
+    public function post(MicroPost $post): Response
     {
+        return $this->render(
+            'micropost/post.html.twig',
+            [
+                'post' => $post
+            ]
+        );
     }
+
+    /**
+     * Classic way: Fetch post by ID manually.
+     * @Route("/{id}", name="micropost_post_example")
+     */
+    /* * /
+    public function postExample(int $id): Response
+    {
+        $post = $this->microPostRepository->find($id);
+        // Render ...
+    }
+    /* */
 }
