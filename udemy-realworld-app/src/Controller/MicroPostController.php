@@ -7,9 +7,8 @@ use App\Repository\MicroPostRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -43,10 +42,45 @@ class MicroPostController extends AbstractController
     public function index(): Response
     {
         $html = $this->twig->render('micropost/index.html.twig', [
-            'posts' => $this->microPostRepository->findAll()
+            // 'posts' => $this->microPostRepository->findAll()
+            'posts' => $this->microPostRepository->findBy(
+                [],
+                ['time' => 'DESC'],
+            )
         ]);
 
         return new Response($html);
+    }
+
+    /**
+     * See 'add()' method for basics about how forms work.
+     * Symfonys internal ParamConverter automatically fetches post with given ID.
+     *
+     * @Route("/edit/{id}", name="micropost_edit")
+     */
+    public function edit(MicroPost $post, Request $request): Response
+    {
+        // Keep time same here (could be an extra field for 'time changed')
+        // $post->setTime(new \DateTime());
+
+        $form = $this->formFactory->create(
+            MicroPostType::class,
+            $post
+        );
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->entityManager->persist($post);
+            $this->entityManager->flush();
+        }
+
+        return $this->render(
+            'micropost/edit.html.twig',
+            [
+                'form' => $form->createView()
+            ]
+        );
     }
 
     /**
@@ -57,7 +91,7 @@ class MicroPostController extends AbstractController
      * @see https://symfony.com/doc/current/form/without_class.html
      * @Route("/add", name="micropost_add")
      */
-    public function add(HttpFoundationRequest $request): Response
+    public function add(Request $request): Response
     {
         $microPost = new MicroPost();
         $microPost->setTime(new \DateTime());

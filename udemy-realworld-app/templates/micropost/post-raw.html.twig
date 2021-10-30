@@ -6,5 +6,8 @@
 		<span>{{ post.title | upper }}</span>
 		<br/>
 		<a href="{{ path('micropost_post', {'id': post.id }) }}">{{ post.text }}</a>
+		<small class="d-block text-right mt-3">
+			<a href="{{ path('micropost_edit', {'id': post.id }) }}">Edit</a>
+		</small>
 	</span>
 </div>
