@@ -34,7 +34,7 @@ class MicroPost
     /**
      * @ORM\Column(type="string", length=280)
      * @Assert\NotBlank()
-     * @Assert\Length(min=10)
+     * @Assert\Length(min=10, minMessage="Too short - min 10.")
      */
     private $text;
 

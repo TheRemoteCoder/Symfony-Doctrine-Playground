@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
@@ -53,37 +54,6 @@ class MicroPostController extends AbstractController
     }
 
     /**
-     * See 'add()' method for basics about how forms work.
-     * Symfonys internal ParamConverter automatically fetches post with given ID.
-     *
-     * @Route("/edit/{id}", name="micropost_edit")
-     */
-    public function edit(MicroPost $post, Request $request): Response
-    {
-        // Keep time same here (could be an extra field for 'time changed')
-        // $post->setTime(new \DateTime());
-
-        $form = $this->formFactory->create(
-            MicroPostType::class,
-            $post
-        );
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Persist is not needed on change (it already exists)
-            $this->entityManager->flush();
-        }
-
-        return $this->render(
-            'micropost/edit.html.twig',
-            [
-                'form' => $form->createView()
-            ]
-        );
-    }
-
-    /**
      * Create post.
      *
      * @todo How is form data associated (entity properties are filled after 'handleRequest'/submit?
@@ -123,9 +93,6 @@ class MicroPostController extends AbstractController
             // Persist only needed for creating new data sets
             $this->entityManager->persist($microPost);
             $this->entityManager->flush();
-
-            // Alternative (usually done this way)
-            // return new RedirectResponse($this->router->generate('micropost_index'));
         }
 
         return $this->render(
@@ -134,6 +101,51 @@ class MicroPostController extends AbstractController
                 'form' => $form->createView()
             ]
         );
+    }
+
+    /**
+     * See 'add()' method for basics about how forms work.
+     * Symfonys internal ParamConverter automatically fetches post with given ID.
+     *
+     * @Route("/edit/{id}", name="micropost_edit")
+     */
+    public function edit(MicroPost $post, Request $request): Response
+    {
+        // Keep time same here (could be an extra field for 'time changed')
+        // $post->setTime(new \DateTime());
+
+        $form = $this->formFactory->create(
+            MicroPostType::class,
+            $post
+        );
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Persist is not needed on change (it already exists)
+            $this->entityManager->flush();
+        }
+
+        return $this->render(
+            'micropost/edit.html.twig',
+            [
+                'form' => $form->createView()
+            ]
+        );
+    }
+
+    /**
+     * @Route("/delete/{id}", name="micropost_delete")
+     */
+    public function delete(MicroPost $post): RedirectResponse
+    {
+        // Queue query for later execution
+        $this->entityManager->remove($post);
+
+        // Execute query/queries
+        $this->entityManager->flush();
+
+        return new RedirectResponse($this->router->generate('micropost_index'));
     }
 
     /**
