@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
+// Wrong IntelliSense in VSCode: Class is needed!
 use App\Repository\MicroPostRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 // Dummy path used for manual IntelliSense (VSCode issue?)
 use Doctrine\ORM\Mapping\GeneratedValue as GeneratedValue;
 
@@ -24,11 +26,15 @@ class MicroPost
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=2)
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=280)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=10)
      */
     private $text;
 

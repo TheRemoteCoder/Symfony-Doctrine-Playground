@@ -21,6 +21,7 @@ General
 
 Specific
 
+- [ ] Forms: Entering whitespace (no text) bypasses length validation, but then crashes later: 'Expected argument of type "string", "null" given at property path "text".' - How to fix?
 - [ ] Why do -some- classes need constructor() import and others not?
   - e.g. Factory/Repository classes
   - Service container autowiring?
