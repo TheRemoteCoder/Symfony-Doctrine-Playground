@@ -145,6 +145,9 @@ class MicroPostController extends AbstractController
         // Queue query for later execution
         $this->entityManager->remove($post);
 
+        // Reset/Delete all queued changes
+        //$this->entityManager->close();
+
         // Execute query/queries
         $this->entityManager->flush();
 
@@ -186,6 +189,11 @@ class MicroPostController extends AbstractController
     /* * /
     public function postExample(int $id): Response
     {
+        // Run this before find() to read entities fresh from DB,
+        // not with any other possible applied changes that are tracked,
+        // but not yet persisted to DB (e.g. before calling flush()).
+        //$this->entityManager->clear();
+
         $post = $this->microPostRepository->find($id);
         // Render ...
     }
