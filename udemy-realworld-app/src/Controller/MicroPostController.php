@@ -6,6 +6,7 @@ use App\Entity\MicroPost;
 use App\Repository\MicroPostRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -25,12 +26,14 @@ class MicroPostController extends AbstractController
 {
     public function __construct(
         EntityManagerInterface $entityManager,
+        FlashBagInterface $flashBag,
         FormFactoryInterface $formFactory,
         MicroPostRepository $microPostRepository,
         RouterInterface $router,
         \Twig\Environment $twig
     ) {
         $this->entityManager = $entityManager;
+        $this->flashBag = $flashBag;
         $this->formFactory = $formFactory;
         $this->microPostRepository = $microPostRepository;
         $this->router = $router;
@@ -144,6 +147,8 @@ class MicroPostController extends AbstractController
 
         // Execute query/queries
         $this->entityManager->flush();
+
+        $this->flashBag->add('notice', 'MicroPost removed');
 
         return new RedirectResponse($this->router->generate('micropost_index'));
     }

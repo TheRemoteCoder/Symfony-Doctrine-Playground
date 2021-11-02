@@ -5,6 +5,14 @@
 {% endblock %}
 
 {% block body %}
+	<!-- Special 'app' variable. Onetime messages that are automatically removed from session once read/displayed -->
+	{% for message in app.flashes('notice') %}
+		<div class="alert-success">
+			{{ message }}
+		</div>
+		<br/>
+	{% endfor %}
+
 	<h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
 	{% for id, post in posts %}
 		{{ include('micropost/post-raw.html.twig', { 'post': post }) }}
