@@ -148,6 +148,8 @@ class MicroPostController extends AbstractController
         // Execute query/queries
         $this->entityManager->flush();
 
+        // Onetime-only flash message (not persistent) stored in session
+        // Read out in twig templates
         $this->flashBag->add('notice', 'MicroPost removed');
 
         return new RedirectResponse($this->router->generate('micropost_index'));
