@@ -169,6 +169,14 @@ php bin/console doctrine:database:drop --force
 php bin/console make:entity Example
 ```
 
+### Users
+
+- See https://symfony.com/doc/current/security.html
+
+```txt
+php bin/console make:user
+```
+
 ---
 
 ## Notes

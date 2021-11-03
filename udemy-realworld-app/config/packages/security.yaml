@@ -1,6 +1,8 @@
 security:
-  encoders:
-    Symfony\Component\Security\Core\User\User: plaintext
+  password_hashers:
+    Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+      algorithm: 'bcrypt'
+      cost: 15
 
   # https://symfony.com/doc/current/security/experimental_authenticators.html
   enable_authenticator_manager: true
@@ -10,18 +12,19 @@ security:
     users_in_memory:
       memory:
         users:
-          john:
-            password: secret
-            roles: 'ROLE_USER'
+          # bcrypt (12 rounds)
+          john: { password: '$2a$15$U2qhQeICQ./dvnsfy1mgEeU8kPWVWBC8aVyz8nZloou54EoYTI2tu', roles: ['ROLE_USER'] }
+          # plaintext
+          #john: { password: 'secret', roles: ['ROLE_USER'] }
 
   firewalls:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
       security: false
     main:
-      # Still needed or from old Symfony?
-      # anonymous: true
-      # http_basic: ~
+      # Seems to have no effect?
+      http_basic:
+        realm: 'Secured Area'
 
       lazy: true
       provider: users_in_memory
@@ -38,3 +41,6 @@ security:
     - { path: ^/micropost, roles: ROLE_USER }
     # - { path: ^/profile, roles: ROLE_USER }
     # - { path: ^/admin, roles: ROLE_ADMIN }
+
+    # Not needed, just for demo (e.g. for login forms)
+    - { path: ^/blog, roles: PUBLIC_ACCESS }
