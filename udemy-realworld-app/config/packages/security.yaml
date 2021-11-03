@@ -23,9 +23,12 @@ security:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
       security: false
     main:
-      # Seems to have no effect?
+      # pattern: ^/ ?
+      # stateless: true ?
+      # http_basic: ~ ?
       http_basic:
         realm: 'Secured Area'
+        # provider: users_in_memory ?
 
       lazy: true
       provider: users_in_memory
