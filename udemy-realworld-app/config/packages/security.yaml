@@ -1,7 +1,10 @@
 # 1:1 from udemy course - Slightly deprecated but still working.
 security:
   encoders:
+    # Define object which holds user object after? auth
+    # See in Profiler: Symfony\Component\Security\Core\User\InMemoryUser
     Symfony\Component\Security\Core\User\User: plaintext
+
   # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
   providers:
     in_memory:
@@ -16,9 +19,12 @@ security:
       security: false
     main:
       anonymous: true
+
       # activate different ways to authenticate
 
+      # ~ = Default config
       http_basic: ~
+
       # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
 
       # form_login: true
