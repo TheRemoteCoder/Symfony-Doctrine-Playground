@@ -37,6 +37,5 @@ class SecurityController
      */
     public function logout()
     {
-
     }
 }
