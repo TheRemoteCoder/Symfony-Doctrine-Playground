@@ -76,11 +76,12 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * @todo Implement unserialize() method.
+     * @todo Check if 'allowed_classes' is correct here - true or false?
+     * @param string $data
      */
     public function unserialize($data): void
     {
-        // Short syntax for: list() ...
+        // New short syntax for: list() ...
         [
             $this->id,
             $this->username,
