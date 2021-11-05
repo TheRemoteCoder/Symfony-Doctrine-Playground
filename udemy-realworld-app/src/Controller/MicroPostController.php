@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\MicroPost;
+use App\Form\MicroPostType;
 use App\Repository\MicroPostRepository;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
@@ -13,6 +15,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
+use Twig\Environment;
 
 /**
  * @todo Find out how to replace SessionInterface with new method
@@ -24,13 +27,43 @@ use Symfony\Component\Routing\RouterInterface;
  */
 class MicroPostController extends AbstractController
 {
+    /**
+     * @var EntityManagerInterface
+     */
+    private $entityManager;
+
+    /**
+     * @var FlashBagInterface
+     */
+    private $flashBag;
+
+    /**
+     * @var FormFactoryInterface
+     */
+    private $formFactory;
+
+    /**
+     * @var MicroPostRepository
+     */
+    private $microPostRepository;
+
+    /**
+     * @var RouterInterface
+     */
+    private $router;
+
+    /**
+     * @var Environment
+     */
+    private $twig;
+
     public function __construct(
         EntityManagerInterface $entityManager,
         FlashBagInterface $flashBag,
         FormFactoryInterface $formFactory,
         MicroPostRepository $microPostRepository,
         RouterInterface $router,
-        \Twig\Environment $twig
+        Environment $twig
     ) {
         $this->entityManager = $entityManager;
         $this->flashBag = $flashBag;
@@ -45,11 +78,12 @@ class MicroPostController extends AbstractController
      */
     public function index(): Response
     {
+        /** @noinspection PhpUnhandledExceptionInspection */
         $html = $this->twig->render('micropost/index.html.twig', [
             // 'posts' => $this->microPostRepository->findAll()
             'posts' => $this->microPostRepository->findBy(
                 [],
-                ['time' => 'DESC'],
+                ['time' => 'DESC']
             )
         ]);
 
@@ -67,7 +101,7 @@ class MicroPostController extends AbstractController
     public function add(Request $request): Response
     {
         $microPost = new MicroPost();
-        $microPost->setTime(new \DateTime());
+        $microPost->setTime(new DateTime());
         //$microPost->setText('TEXT:DEFAULT');
 
         // Class defines the form structure requirement: Form must match the Entity properties
