@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use App\Repository\UserRepository;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -28,6 +29,7 @@ class User implements UserInterface, \Serializable
     private $password;
 
     /**
+     * @todo Why 254, not 255 for 255 length?
      * @ORM\Column(type="string", length=254, unique=true)
      */
     private $email;
@@ -37,34 +39,34 @@ class User implements UserInterface, \Serializable
      */
     private $fullName;
 
-    public function getRoles()
+    public function getRoles(): array
     {
+        // Can add any roles here, syntax is Symfony standard?
         return [
             'ROLE_USER'
         ];
     }
 
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    public function getSalt()
+    public function getSalt(): ?string
     {
         return null;
     }
 
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
 
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
-
     }
 
-    public function serialize()
+    public function serialize(): ?string
     {
         return serialize([
             $this->id,
@@ -73,11 +75,17 @@ class User implements UserInterface, \Serializable
         ]);
     }
 
-    public function unserialize($serialized)
+    /**
+     * @todo Implement unserialize() method.
+     */
+    public function unserialize($data): void
     {
-        list($this->id,
+        // Short syntax for: list() ...
+        [
+            $this->id,
             $this->username,
-            $this->password) = unserialize($serialized);
+            $this->password
+        ] = unserialize($data, ['allowed_classes' => false]);
     }
 
     /**

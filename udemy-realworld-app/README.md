@@ -167,6 +167,7 @@ php bin/console doctrine:database:drop --force
 ```txt
 # Entities
 php bin/console make:entity Example
+php bin/console make:repository Example
 ```
 
 ### Users

@@ -6,10 +6,12 @@ use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface; // Deprecated
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+// Deprecated
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
+use Twig\Environment;
 
 /**
  * @todo Find out how to replace SessionInterface with new method
@@ -19,13 +21,14 @@ use Symfony\Component\Routing\RouterInterface;
 class BlogController extends AbstractController
 {
     public function __construct(
-        \Twig\Environment $twig,
+        Environment      $twig,
         SessionInterface $session, // Deprecated
-        RouterInterface $router
-    ) {
-        $this->twig    = $twig;
+        RouterInterface  $router
+    )
+    {
+        $this->twig = $twig;
         $this->session = $session;
-        $this->router  = $router;
+        $this->router = $router;
     }
 
     /**
@@ -53,8 +56,8 @@ class BlogController extends AbstractController
         $id = uniqid();
         $posts[$id] = [
             'title' => 'Random title ' . $id,
-            'text'  => 'Random text ' . $id,
-            'time'  => new DateTime(),
+            'text' => 'Random text ' . $id,
+            'time' => new DateTime(),
         ];
 
         $this->session->set('posts', $posts);
