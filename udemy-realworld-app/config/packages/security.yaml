@@ -1,37 +1,20 @@
-# 1:1 from udemy course - Slightly deprecated but still working.
+##
+# Why YAML is not a great format:
+# - No distinction between available/required attributes vs.
+#   those that you can define by yourself (aka not in any docs)
+# - No proper linting or jumping to source definitions
+##
 security:
   encoders:
-    # Define object which holds user object after? auth
-    # See in Profiler: Symfony\Component\Security\Core\User\InMemoryUser
-    Symfony\Component\Security\Core\User\User: plaintext
-
-  # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    App\Entity\User: bcrypt
   providers:
-    in_memory:
-      memory:
-        users:
-          john:
-            password: helloJohn
-            roles: 'ROLE_USER'
+    # Can be any identifier
+    database_users_xxx:
+      entity: { class: App\Entity\User, property: password  }
   firewalls:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
       security: false
     main:
       anonymous: true
-
-      # activate different ways to authenticate
-
-      # ~ = Default config
-      http_basic: ~
-
-      # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-
-      # form_login: true
-      # https://symfony.com/doc/current/security/form_login_setup.html
-
-  # Easy way to control access for large sections of your site
-  # Note: Only the *first* access control that matches will be used
-  access_control:
-    - { path: ^/micropost, roles: ROLE_USER }
-    # - { path: ^/profile, roles: ROLE_USER }
+      pattern: ^/
