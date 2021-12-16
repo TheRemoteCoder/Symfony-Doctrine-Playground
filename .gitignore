@@ -1,5 +1,5 @@
 # System files
 */*.lnk
 *desktop.ini
-#.DS_Store
+.DS_Store
 Thumbs.db
