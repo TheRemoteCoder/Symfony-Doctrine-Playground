@@ -19,6 +19,8 @@ class SecurityController
     }
 
     /**
+     * Dependencies can also be injected in methods directly.
+     * 
      * @Route("/login", name="security_login")
      */
     public function login(AuthenticationUtils $authenticationUtils)
@@ -26,8 +28,8 @@ class SecurityController
         return new Response($this->twig->render(
             'security/login.html.twig',
             [
+                'error' => $authenticationUtils->getLastAuthenticationError(),
                 'last_username' => $authenticationUtils->getLastUsername(),
-                'error' => $authenticationUtils->getLastAuthenticationError()
             ]
         ));
     }
