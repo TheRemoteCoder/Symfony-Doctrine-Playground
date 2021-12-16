@@ -7,10 +7,16 @@
 security:
   encoders:
     App\Entity\User: bcrypt
+
+    # Define object which holds user object after? auth
+    # See in Profiler: Symfony\Component\Security\Core\User\InMemoryUser
+    # Symfony\Component\Security\Core\User\User: plaintext
+
   providers:
     # Can be any identifier
     database_users_xxx:
       entity: { class: App\Entity\User, property: password  }
+
   firewalls:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -18,3 +24,36 @@ security:
     main:
       anonymous: true
       pattern: ^/
+
+      # ~ = Default config
+      #http_basic:
+
+      # https://symfony.com/doc/current/security/form_login_setup.html
+      #form_login: true
+      form_login:
+        # Paths
+        # 1. Login form submits to this URL
+        # 2. Redirect unauthenticated users here, render login form here
+        # 3. After login, redirect users here
+        check_path: security_login
+        login_path: security_login
+        default_target_path: micropost_index
+        csrf_token_generator: security.csrf.token_manager
+        # Force authenticated users to redirect here, always
+        #always_use_default_target_path: false
+        # Redirect authenticated users to last visited page (except login)
+        #use_referer: true
+        # Redirect failed users to here (default = login form)
+        #failure_path: ...
+
+      logout:
+        path: security_logout
+        # After logout, redirect here
+        target: micropost_index
+
+  # Easy way to control access for large sections of your site
+  # Note: Only the *first* access control that matches will be used
+  access_control:
+    # - { path: ^/micropost, roles: ROLE_USER }
+    # - { path: ^/profile, roles: ROLE_USER }
+
