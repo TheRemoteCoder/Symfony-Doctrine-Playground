@@ -46,13 +46,28 @@ class AppFixtures extends Fixture
     {
         $user = new User();
 
-        $user->setUsername('test');
-        $user->setFullName('Test');
+        $user->setEnabled(true);
+        $user->setRoles([User::ROLE_USER]);
+        $user->setUsername('john_doe');
+        $user->setFullName('John Doe');
         $user->setEmail('test@localhost');
+        //$user->setPassword('john123');
         $user->setPassword($this->userPasswordEncoder->encodePassword(
             $user,
-            'test'
+            'john123'
         ));
+
+        /* * /
+        $encoder = $this->container->get('security.password_encoder');
+        $password = $encoder->encodePassword($user, $user->getPassword());
+        $user->setPassword($password);
+
+        /* */
+        $user->setPassword($this->userPasswordEncoder->encodePassword(
+            $user,
+            'john123'
+        ));
+        /* */
 
         $manager->persist($user);
     }

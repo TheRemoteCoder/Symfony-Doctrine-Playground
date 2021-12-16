@@ -5,24 +5,38 @@
 # - No proper linting or jumping to source definitions
 ##
 security:
+  # Show REAL error causes (not just 'Bad credentials')
+  # https://symfonycasts.com/screencast/symfony-security/auth-errors
+  hide_user_not_found: false
+
   encoders:
-    App\Entity\User: bcrypt
+    App\Entity\User: plaintext
+    #App\Entity\User: bcrypt
+    #App\Entity\User: 
+    #  algorithm: auto
 
     # Define object which holds user object after? auth
     # See in Profiler: Symfony\Component\Security\Core\User\InMemoryUser
     # Symfony\Component\Security\Core\User\User: plaintext
 
   providers:
-    # Can be any identifier
-    database_users_xxx:
-      entity: { class: App\Entity\User, property: password  }
+    # Can be any identifier, 'database_users' is arbitrary
+    database_users:
+      # Symfony searches data by entered username, if none found -> Login error
+      entity: { class: App\Entity\User, property: username }
 
   firewalls:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
       security: false
     main:
+      # Anonymous requires controllers to be secured separately else all routes are publicly available.
+      # Be aware to not secure the login page itself.
       anonymous: true
+      # anonymous: false
+      # anonymous: ~
+
+      # Login routes must fall into this pattern
       pattern: ^/
 
       # ~ = Default config
@@ -37,7 +51,7 @@ security:
         # 3. After login, redirect users here
         check_path: security_login
         login_path: security_login
-        default_target_path: micropost_index
+        default_target_path: micropost_index # micropost_index
         csrf_token_generator: security.csrf.token_manager
         # Force authenticated users to redirect here, always
         #always_use_default_target_path: false
@@ -45,15 +59,25 @@ security:
         #use_referer: true
         # Redirect failed users to here (default = login form)
         #failure_path: ...
+        # Form field names (if using others) - see login.html.twig
+        #username_parameter: _username
+        #password_parameter: _password
 
       logout:
         path: security_logout
         # After logout, redirect here
-        target: micropost_index
+        target: blog_index # micropost_index
 
+  # Todo: Why does this not work?
+  #
   # Easy way to control access for large sections of your site
   # Note: Only the *first* access control that matches will be used
+  #
+  # login: https://stackoverflow.com/questions/37367229/symfony-3-login-form-infinity-loop
   access_control:
-    # - { path: ^/micropost, roles: ROLE_USER }
+    #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    #- { path: '^/micropost', roles: ROLE_USER }
     # - { path: ^/profile, roles: ROLE_USER }
 
+  role_hierarchy:
+    ROLE_ADMIN: ROLE_USER

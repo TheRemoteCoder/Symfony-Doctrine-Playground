@@ -3,10 +3,19 @@
 {% block body %}
   {% if error %}
     <div class="alert alert-danger">
+      {# 
+      Translation file example: vendor/symfony/security-core/Resources/translations/* 
+      
+      trans(
+        "Associative? array of data to replace in messageKey, if any placeholders", 
+        "Domain: Tell Symfony where to look for translations (here: Security/Resources/translations)"
+      ) 
+      #}
       {{ error.messageKey|trans(error.messageData, 'security') }}
     </div>
   {% endif %}
 
+  {# Field names - Define in security.yaml #}
   <form action="{{ path('security_login') }}" method="post">
     <div>
       <div class="form-group">
