@@ -118,6 +118,9 @@
     "egulias/email-validator": {
         "version": "3.1.1"
     },
+    "ezyang/htmlpurifier": {
+        "version": "v4.13.0"
+    },
     "felixfbecker/advanced-json-rpc": {
         "version": "v3.2.1"
     },
@@ -126,6 +129,18 @@
     },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
+    },
+    "friendsofsymfony/jsrouting-bundle": {
+        "version": "2.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.3",
+            "ref": "a9f2e49180f75cdc71ae279a929c4b2e0638de84"
+        },
+        "files": [
+            "./config/routes/fos_js_routing.yaml"
+        ]
     },
     "guzzlehttp/guzzle": {
         "version": "7.4.1"
@@ -136,8 +151,14 @@
     "guzzlehttp/psr7": {
         "version": "2.1.0"
     },
+    "jms/metadata": {
+        "version": "2.6.1"
+    },
     "kint-php/kint": {
         "version": "3.3"
+    },
+    "knplabs/knp-snappy": {
+        "version": "v1.3.1"
     },
     "laminas/laminas-code": {
         "version": "4.3.0"
@@ -145,11 +166,26 @@
     "laravel/homestead": {
         "version": "v12.3.0"
     },
+    "maennchen/zipstream-php": {
+        "version": "2.1.0"
+    },
+    "markbaker/complex": {
+        "version": "3.0.1"
+    },
+    "markbaker/matrix": {
+        "version": "3.0.0"
+    },
+    "mobiledetect/mobiledetectlib": {
+        "version": "2.8.37"
+    },
     "monolog/monolog": {
         "version": "2.2.0"
     },
     "myclabs/deep-copy": {
         "version": "1.10.2"
+    },
+    "myclabs/php-enum": {
+        "version": "1.8.3"
     },
     "netresearch/jsonmapper": {
         "version": "v4.0.0"
@@ -177,6 +213,9 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "1.4.0"
+    },
+    "phpoffice/phpspreadsheet": {
+        "version": "1.20.0"
     },
     "phpspec/prophecy": {
         "version": "1.13.0"
@@ -239,6 +278,9 @@
     },
     "psr/log": {
         "version": "1.1.4"
+    },
+    "psr/simple-cache": {
+        "version": "1.0.1"
     },
     "ralouphie/getallheaders": {
         "version": "3.0.3"
@@ -725,6 +767,18 @@
     "twig/twig": {
         "version": "v3.3.2"
     },
+    "vich/uploader-bundle": {
+        "version": "1.18",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.7",
+            "ref": "c4f5755b37fb65b9c6a3cbdae91205c15a137ed4"
+        },
+        "files": [
+            "./config/packages/vich_uploader.yaml"
+        ]
+    },
     "vimeo/psalm": {
         "version": "4.11.2"
     },
@@ -736,6 +790,12 @@
     },
     "webmozart/path-util": {
         "version": "2.3.0"
+    },
+    "wilensky/bitmask-trait": {
+        "version": "v1.1"
+    },
+    "willdurand/jsonp-callback-validator": {
+        "version": "v1.1.0"
     },
     "zalas/phpunit-globals": {
         "version": "v2.1.0"
