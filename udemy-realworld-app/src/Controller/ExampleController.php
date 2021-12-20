@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use GuzzleHttp\Client;
+
 
 /**
  * AbstractController is one of few other possible extensions (check source).
@@ -44,6 +46,26 @@ class ExampleController extends AbstractController
         ]);
 
         return new Response($html);
+    }
+
+    /**
+     * Guzzle testing route.
+     * Also uses 'Kint' to show debug results (toolbar at screen bottom).
+     *
+     * @Route("/guzzle", name="example_guzzle")
+     * @see https://kint-php.github.io/kint
+     */
+    public function guzzle(): Response
+    {
+        $client = new Client();
+        $res = $client->request('GET', 'https://jsonplaceholder.typicode.com/todos/1', [
+          // 'auth' => ['user', 'pass']
+        ]);
+        
+        d($res->getStatusCode());
+        d($res->getHeader('content-type')[0]);
+      
+        return new Response($res->getBody());
     }
 
     /**
