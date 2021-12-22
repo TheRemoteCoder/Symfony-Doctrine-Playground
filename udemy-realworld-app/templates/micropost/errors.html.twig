@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <h1>cmd</h1>
+  <code>
+    {{ cmd }}
+  </code>
+  <hr />
+
+  <h1>system(cmd)</h1>
+  <code>
+    {{ data }}
+  </code>
+  <hr />
+
+  <h1>stdin</h1>
+  <code>
+    {{ stdin }}
+  </code>
+  <hr />
+
+  <h1>stderr</h1>
+  <code>
+    {{ stderr }}
+  </code>
+  <hr />
+
+  <h1>stdout</h1>
+  <code>
+    {{ stdout }}
+  </code>
+  <hr />
+
+  <h1>stream</h1>
+  <code>
+    {{ stream }}
+  </code>
+
+{% endblock %}
+
