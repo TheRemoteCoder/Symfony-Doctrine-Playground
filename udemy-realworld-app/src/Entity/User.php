@@ -10,6 +10,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
+ * @info Assertions are user-faced with messages in form validations (not for backend?)
+ * @info 'as Assert' is a convention, not requirement in Symfony
+ * @info NotBlank vs. Length assertions are different!
+ *
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(fields="email", message="This e-mail is already used")
  * @UniqueEntity(fields="username", message="This username is already used")
@@ -34,8 +38,9 @@ class User implements UserInterface, \Serializable
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=4096)
-     * @Assert\Length(min=1, max=4096)
+     * @info Encoded/generated value does not need assertions.
+     *
+     * @ORM\Column(type="string")
      */
     private $password;
 
@@ -206,6 +211,8 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * @info Sets -encoded- password (-> UserPasswordEncoderInterface). Not visible to user.
+     *
      * @param mixed $password
      */
     public function setPassword($password): void
