@@ -45,7 +45,30 @@ class ExampleController extends AbstractController
             'message' => 'index(): ' . $this->greeting->greet($name)
         ]);
 
-        return new Response($html);
+        /* * /
+        d($request->getBaseUrl());
+        d($request->getScheme());
+        d($request->getPort());
+        d($request->getUserInfo());
+        d($request->getHttpHost());
+        d($request->getRequestUri());
+        d($request->getUri());
+        d($request->getLocale());
+        d($request->isMethodSafe());
+        d($request->isMethodIdempotent());
+        d($request->isMethodCacheable());
+        d($request->isXmlHttpRequest());
+        d($request->headers);
+        d(array_values((array)$request->headers));
+        /* */
+
+        $response = new Response($html, 200);
+
+        // Works only if no other output has occured (e.g. debug messages)
+        $response->headers->add(['x-test' => 'XXX']);
+        //$response->headers->addCacheControlDirective('must-revalidate', true);
+
+        return $response;
     }
 
     /**
