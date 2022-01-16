@@ -20,8 +20,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface, \Serializable
 {
-    const ROLE_USER = 'ROLE_USER';
-    const ROLE_ADMIN = 'ROLE_ADMIN';
+    public const ROLE_USER = 'ROLE_USER';
+    public const ROLE_ADMIN = 'ROLE_ADMIN';
 
     /**
      * @ORM\Id()
@@ -118,7 +118,7 @@ class User implements UserInterface, \Serializable
         $this->enabled = false;
     }
 
-    public function getRoles()
+    public function getRoles(): array
     {
         return $this->roles;
     }
@@ -131,24 +131,23 @@ class User implements UserInterface, \Serializable
         $this->roles = $roles;
     }
 
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    public function getSalt()
+    public function getSalt(): ?string
     {
         return null;
     }
 
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
 
     public function eraseCredentials()
     {
-
     }
 
     public function serialize()
@@ -255,7 +254,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return Collection
      */
-    public function getFollowers()
+    public function getFollowers(): Collection
     {
         return $this->followers;
     }
@@ -263,7 +262,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return Collection
      */
-    public function getFollowing()
+    public function getFollowing(): Collection
     {
         return $this->following;
     }
@@ -280,7 +279,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return Collection
      */
-    public function getPostsLiked()
+    public function getPostsLiked(): Collection
     {
         return $this->postsLiked;
     }

@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use GuzzleHttp\Client;
 
-
 /**
  * AbstractController is one of few other possible extensions (check source).
  *
@@ -73,7 +72,7 @@ class ExampleController extends AbstractController
 
         return $response;
     }
-    
+
     /**
      * @Route("/db-laminas", name="example_dblaminas")
      */
@@ -94,7 +93,7 @@ class ExampleController extends AbstractController
         //$dotenv->load(__DIR__.'/.env');
         $dbUrl = $_ENV['DATABASE_URL'];
 
-        $capsule = new Capsule;
+        $capsule = new Capsule();
         $capsule->addConnection([
             'driver' => 'mysql',
             'host' => 'localhost',
@@ -111,7 +110,7 @@ class ExampleController extends AbstractController
 
         return $response;
     }
-    
+
     /**
      * Guzzle testing route.
      * Also uses 'Kint' to show debug results (toolbar at screen bottom).
@@ -125,10 +124,10 @@ class ExampleController extends AbstractController
         $res = $client->request('GET', 'https://jsonplaceholder.typicode.com/todos/1', [
           // 'auth' => ['user', 'pass']
         ]);
-        
+
         d($res->getStatusCode());
         d($res->getHeader('content-type')[0]);
-      
+
         return new Response($res->getBody());
     }
 

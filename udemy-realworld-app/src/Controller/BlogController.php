@@ -24,8 +24,7 @@ class BlogController extends AbstractController
         Environment      $twig,
         SessionInterface $session, // Deprecated
         RouterInterface  $router
-    )
-    {
+    ) {
         $this->twig = $twig;
         $this->session = $session;
         $this->router = $router;

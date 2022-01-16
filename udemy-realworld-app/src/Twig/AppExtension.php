@@ -23,7 +23,7 @@ class AppExtension extends AbstractExtension implements GlobalsInterface
         $this->locale = $locale;
     }
 
-    public function getFilters()
+    public function getFilters(): array
     {
         return [new TwigFilter('price', [$this, 'priceFilter'])];
     }

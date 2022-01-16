@@ -32,14 +32,14 @@ class SecurityController extends AbstractController
      */
     public function loginAttempt(Request $request): Response
     {
-      if ($request->isMethod('post')) { 
-          var_dump('POST');
-      }
+        if ($request->isMethod('post')) {
+            var_dump('POST');
+        }
     }
-    
+
     /**
      * Dependencies can also be injected in methods directly.
-     * 
+     *
      * @todo Fix - Login to this route throws error 'Invalid credentials'
      * @Route("/login", name="security_login")
      */
