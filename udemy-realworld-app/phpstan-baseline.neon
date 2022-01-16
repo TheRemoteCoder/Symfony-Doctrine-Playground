@@ -1,0 +1,72 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Access to an undefined property App\\\\Command\\\\HelloCommand\\:\\:\\$greeting\\.$#"
+			count: 2
+			path: src/Command/HelloCommand.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Controller\\\\BlogController\\:\\:\\$router\\.$#"
+			count: 2
+			path: src/Controller/BlogController.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Controller\\\\BlogController\\:\\:\\$session\\.$#"
+			count: 5
+			path: src/Controller/BlogController.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Controller\\\\BlogController\\:\\:\\$twig\\.$#"
+			count: 1
+			path: src/Controller/BlogController.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Controller\\\\ExampleController\\:\\:\\$greeting\\.$#"
+			count: 2
+			path: src/Controller/ExampleController.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Controller\\\\ExampleController\\:\\:\\$twig\\.$#"
+			count: 2
+			path: src/Controller/ExampleController.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Controller\\\\ExampleController\\:\\:\\$veryBadDesign\\.$#"
+			count: 1
+			path: src/Controller/ExampleController.php
+
+		-
+			message: "#^Instantiated class Illuminate\\\\Database\\\\Capsule\\\\Manager not found\\.$#"
+			count: 1
+			path: src/Controller/ExampleController.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Controller\\\\MicroPostController\\:\\:\\$logger\\.$#"
+			count: 3
+			path: src/Controller/MicroPostController.php
+
+		-
+			message: "#^Undefined variable\\: \\$xthis$#"
+			count: 1
+			path: src/Controller/MicroPostController.php
+
+		-
+			message: "#^Class App\\\\Entity\\\\Bp not found\\.$#"
+			count: 1
+			path: src/Security/Voter/BpVoter.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Service\\\\Greeting\\:\\:\\$logger\\.$#"
+			count: 2
+			path: src/Service/Greeting.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Service\\\\Greeting\\:\\:\\$message\\.$#"
+			count: 2
+			path: src/Service/Greeting.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Twig\\\\AppExtension\\:\\:\\$locale\\.$#"
+			count: 2
+			path: src/Twig/AppExtension.php
+
