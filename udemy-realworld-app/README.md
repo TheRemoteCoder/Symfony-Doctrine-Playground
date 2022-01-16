@@ -202,6 +202,9 @@ tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src
 # PHP Stan
 # - Untested: ./vendor/bin/phpstan analyse config public templates
 ./vendor/bin/phpstan analyse src tests
+
+# Psalm
+./vendor/bin/psalm
 ```
 
 ### Stack

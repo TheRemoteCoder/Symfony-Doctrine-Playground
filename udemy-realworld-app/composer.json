@@ -87,7 +87,7 @@
     "symfony/stopwatch": "^5.3",
     "symfony/var-dumper": "^5.3",
     "symfony/web-profiler-bundle": "^5.3",
-    "vimeo/psalm": "^4.11",
+    "vimeo/psalm": "^4.18",
     "zalas/phpunit-globals": "^2.1"
   },
   "config": {
