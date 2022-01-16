@@ -78,8 +78,7 @@ class ExampleController extends AbstractController
      */
     public function dbLaminas(): Response
     {
-        $html     = '';
-        $response = new Response($html);
+        // Todo ... ?
 
         return $response;
     }
