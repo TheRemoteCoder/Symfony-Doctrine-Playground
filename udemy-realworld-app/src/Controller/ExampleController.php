@@ -92,18 +92,33 @@ class ExampleController extends AbstractController
         //$dotenv = new Dotenv();
         //$dotenv->load(__DIR__.'/.env');
         $dbUrl = $_ENV['DATABASE_URL'];
+        $cfg = parse_url($dbUrl);
+        
+        d($cfg);
 
         $capsule = new Capsule();
         $capsule->addConnection([
             'driver' => 'mysql',
-            'host' => 'localhost',
-            'database' => 'database',
-            'username' => 'root',
-            'password' => 'password',
+            'host' => $cfg['host'],
+            'database' => ltrim($cfg['path'], '/'),
+            'username' => $cfg['user'],
+            'password' => $cfg['pass'],
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
         ]);
+
+        // As static
+        $capsule->setAsGlobal();
+        $posts1 = Capsule::table('micro_post')->where('id', '>', 1)->get();
+        $posts2 = Capsule::select('SELECT * from micro_post where id > ?', [1]);
+        var_dump($posts1);
+        var_dump($posts2);
+        
+        // As instance
+        $posts3 = $capsule->getConnection()->select('SELECT * from micro_post where id > ?', [1]);
+        var_dump($posts3);
+
 
         $html     = '';
         $response = new Response($html);
