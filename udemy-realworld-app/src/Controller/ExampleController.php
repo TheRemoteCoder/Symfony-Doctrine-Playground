@@ -4,7 +4,10 @@ namespace App\Controller;
 
 use App\Service\Greeting;
 use App\Service\VeryBadDesign;
+use Illuminate\Database\Capsule\Manager as Capsule;
+// use Laminas\Db\Sql\Sql;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -72,7 +75,7 @@ class ExampleController extends AbstractController
     }
     
     /**
-     *
+     * @Route("/db-laminas", name="example_dblaminas")
      */
     public function dbLaminas(): Response
     {
@@ -83,10 +86,26 @@ class ExampleController extends AbstractController
     }
 
     /**
-     *
+     * @Route("/db-laravel", name="example_dblaravel")
      */
     public function dbLaravel(): Response
     {
+        //$dotenv = new Dotenv();
+        //$dotenv->load(__DIR__.'/.env');
+        $dbUrl = $_ENV['DATABASE_URL'];
+
+        $capsule = new Capsule;
+        $capsule->addConnection([
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'database' => 'database',
+            'username' => 'root',
+            'password' => 'password',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+        ]);
+
         $html     = '';
         $response = new Response($html);
 
