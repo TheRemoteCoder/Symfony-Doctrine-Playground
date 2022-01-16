@@ -33,6 +33,7 @@
     "mobiledetect/mobiledetectlib": "^2.8",
     "phpdocumentor/reflection-docblock": "^5.2",
     "phpoffice/phpspreadsheet": "^1.20",
+    "phpunitgoodpractices/polyfill": "^1.5",
     "sensio/framework-extra-bundle": "^6.2",
     "symfony/asset": "5.4.*",
     "symfony/console": "5.4.*",

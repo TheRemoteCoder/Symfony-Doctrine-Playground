@@ -264,6 +264,9 @@
             "tests/bootstrap.php"
         ]
     },
+    "phpunitgoodpractices/polyfill": {
+        "version": "v1.5.0"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
