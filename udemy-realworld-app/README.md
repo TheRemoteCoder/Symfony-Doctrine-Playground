@@ -4,6 +4,7 @@
 - [Setup](#setup)
 - [Snippets](#snippets)
 - [Notes](#notes)
+- [QA](#qa)
 - [Todo](#todo)
 
 ---
@@ -41,7 +42,7 @@ Assuming no other server is being used.
 
 Needed after configuration (note that it can reset/delete old changes, e.g. databases):
 
-```txt
+```bash
 vagrant up --provision
 ```
 
@@ -53,7 +54,7 @@ Useful commands after successful installation of Vagrant + Homestead.
 
 Start + Login to Vagrant from Homestead installation folder:
 
-```txt
+```bash
 vagrant up
 vagrant ssh
 ```
@@ -62,7 +63,7 @@ vagrant ssh
 
 Run from within logged-in Vagrant:
 
-```txt
+```bash
 # Default access
 mysql -u homestead -p
 
@@ -90,7 +91,7 @@ vagrant reload
 
 From from Homestead installation folder:
 
-```txt
+```bash
 # Manually synch local code with Vagrant (even from remote folders outside cwd)
 vagrant rsync
 
@@ -105,14 +106,14 @@ vagrant rsync-auto
 
 ### Frontend
 
-```txt
+```bash
 # Webpack / Encore
 npm run (dev|build)
 ```
 
 ### Debug / Internals
 
-```txt
+```bash
 # Dump app configuration
 php bin/console debug:config FrameworkBundle
 
@@ -129,7 +130,7 @@ php bin/console debug:router
 
 #### Fixtures
 
-```txt
+```bash
 # Apply fixtures as SQL and write/override DB table
 php bin/console doctrine:fixtures:load
 
@@ -142,7 +143,7 @@ php bin/console doctrine:fixtures:load --help
 
 #### SQL
 
-```txt
+```bash
 # Create migration SQL command file under /migrations/
 # 'make' is a Symfony CLI alias for Doctrine
 php bin/console make:migration
@@ -164,16 +165,16 @@ php bin/console doctrine:database:drop --force
 
 ### Entities
 
-```txt
+```bash
 # Entities
 php bin/console make:entity Example
 ```
 
 ### Users
 
-- See https://symfony.com/doc/current/security.html
+See [Symfony - Security ](https://symfony.com/doc/current/security.html).
 
-```txt
+```bash
 php bin/console make:user
 ```
 
@@ -183,6 +184,32 @@ php bin/console make:user
 
 - Find custom comments with the prefix `@info` in any file not in the `/src` folder
   - Source is considered custom code completely, so it's not needed here
+
+---
+
+## QA
+
+Tools for code quality
+
+```bash
+# PHP Code beautifier
+./vendor/bin/phpcbf
+
+# PHP Code sniffer
+# - Not this: './vendor/bin/phpcs'
+tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src
+
+# PHP Stan
+# - Untested: ./vendor/bin/phpstan analyse config public templates
+./vendor/bin/phpstan analyse src tests
+```
+
+### Stack
+
+- [PhpCs](https://github.com/squizlabs/PHP_CodeSniffer)
+  - [PhpCsFixer](https://github.com/friendsofphp/php-cs-fixer)
+- [PhpMD](https://phpmd.org)
+- [PhpStan](https://phpstan.org/user-guide/getting-started)
 
 ---
 

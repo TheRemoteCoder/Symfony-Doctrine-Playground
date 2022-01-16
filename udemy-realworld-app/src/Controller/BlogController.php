@@ -21,9 +21,9 @@ use Twig\Environment;
 class BlogController extends AbstractController
 {
     public function __construct(
-        Environment      $twig,
+        Environment $twig,
         SessionInterface $session, // Deprecated
-        RouterInterface  $router
+        RouterInterface $router
     ) {
         $this->twig = $twig;
         $this->session = $session;
