@@ -70,7 +70,29 @@ class ExampleController extends AbstractController
 
         return $response;
     }
+    
+    /**
+     *
+     */
+    public function dbLaminas(): Response
+    {
+        $html     = '';
+        $response = new Response($html);
 
+        return $response;
+    }
+
+    /**
+     *
+     */
+    public function dbLaravel(): Response
+    {
+        $html     = '';
+        $response = new Response($html);
+
+        return $response;
+    }
+    
     /**
      * Guzzle testing route.
      * Also uses 'Kint' to show debug results (toolbar at screen bottom).

@@ -163,6 +163,12 @@
     "laminas/laminas-code": {
         "version": "4.3.0"
     },
+    "laminas/laminas-db": {
+        "version": "2.13.4"
+    },
+    "laminas/laminas-stdlib": {
+        "version": "3.7.0"
+    },
     "laravel/homestead": {
         "version": "v12.3.0"
     },
