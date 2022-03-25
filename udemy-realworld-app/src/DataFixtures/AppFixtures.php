@@ -52,10 +52,6 @@ class AppFixtures extends Fixture
         $user->setFullName('John Doe');
         $user->setEmail('test@localhost');
         //$user->setPassword('john123');
-        $user->setPassword($this->userPasswordEncoder->encodePassword(
-            $user,
-            'john123'
-        ));
 
         /* * /
         $encoder = $this->container->get('security.password_encoder');
