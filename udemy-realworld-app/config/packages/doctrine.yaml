@@ -6,13 +6,22 @@ doctrine:
         # either here or in the DATABASE_URL env var (see .env file)
         #server_version: '13'
     orm:
+        # Auto generated if debug is true, otherwise
+        # php app/console cache:warmup --env=prod --no-debug
         auto_generate_proxy_classes: true
+        # Rules for generating table names, field names
+        # By default it's the_table_name
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        # Automatically look for mapping configuration
         auto_mapping: true
         mappings:
             App:
                 is_bundle: false
+                # Is of type annotation (could also be XML, YAML)
                 type: annotation
+                # Entities could be found in directory
                 dir: '%kernel.project_dir%/src/Entity'
+                # Entity namespace prefix is
                 prefix: 'App\Entity'
+                # Shorthand alias is App, eg. App:Post, App:User
                 alias: App

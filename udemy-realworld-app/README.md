@@ -3,6 +3,7 @@
 - [Intro](#intro)
 - [Setup](#setup)
 - [Snippets](#snippets)
+- [Tips](#tips)
 - [Notes](#notes)
 - [QA](#qa)
 - [Todo](#todo)
@@ -177,6 +178,17 @@ See [Symfony - Security ](https://symfony.com/doc/current/security.html).
 ```bash
 php bin/console make:user
 ```
+
+---
+
+## Tips
+
+General Symfony tips
+
+### Controllers
+
+- `ControllerTrait` in `Symfony\Bundle\FrameworkBundle\Controller` has many helpful methods for requests, user + authentication, responses e.g. JSON
+ - Get it by creating controllers with `extends Controller` from `Symfony\Bundle\FrameworkBundle\Controller\Controller`
 
 ---
 

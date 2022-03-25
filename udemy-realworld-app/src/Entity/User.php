@@ -45,6 +45,9 @@ class User implements UserInterface, \Serializable
     private $password;
 
     /**
+     * @info Only form validation need, not stored.
+     * @info Not ORM relevant, so no DB/migration handling needed.
+     *
      * @Assert\NotBlank()
      * @Assert\Length(min=8, max=4096)
      */
@@ -228,6 +231,8 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * @info Only form validation need, not stored.
+     *
      * @return mixed
      */
     public function getPlainPassword()
@@ -236,6 +241,8 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * @info Only form validation need, not stored.
+     *
      * @param mixed $plainPassword
      */
     public function setPlainPassword($plainPassword): void
